@@ -13,6 +13,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+// Route::get('/', function () {
+//     return view('home');
+// });
+Route::get('/inicio', function () {
+    return view('user.index');
+})->name('inicio');
+
+
+Route::get('/projetos', function () {
+    return view('user.projetos');
+})->name('projetos');
+
+
+Route::get('/contato', function () {
+    return view('user.contato');
+})->name('contato');
+
+Route::get('/ver-projeto', function () {
+    return view('user.visualizar-projeto');
+})->name('ver-projeto');
+

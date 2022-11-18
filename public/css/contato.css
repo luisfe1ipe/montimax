@@ -1,0 +1,106 @@
+ .container-contato{
+    width: 1280px;
+    height: 920px;
+    margin: 0 auto;
+    display: flex;
+    padding-top: 200px;
+    justify-content: space-around;
+}
+
+.form{
+    width: 785px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+.form button{
+    background-color: #EF4243;
+    font-size: 18px;
+    font-weight: bold;
+    width: 342px;
+    height: 40px;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    margin-top: 28px;
+    cursor: pointer;
+}
+.form button:hover{
+    background-color: #252525;
+}
+
+.name{
+    margin-top: 24px;
+    font-weight: bold;
+}
+.telefone, .email, .assunto, .mensagem{
+    margin-top: 6px;
+    font-weight: bold;
+}
+
+.inputs input{
+    width: 98.5%;
+    height: 30px;
+    border-radius: 4px;
+    padding: 4px;
+    border: 1.8px solid #000000;
+}
+.inputs span{
+    color: #EF4243;
+}
+
+
+.inputs input:focus{
+    background-color: #1e1e1e0c;
+}
+
+.inputs textarea{
+    border-radius: 4px;
+    border: 1.8px solid #000000;
+    resize: none;
+    width: 99.5%;
+}
+
+
+
+.info{
+    margin-top: 24px;
+}
+
+#telefone{
+    margin-top: 18px;
+}
+
+
+@media (max-width: 768px) {
+    .container-contato{
+        width: 330px;
+        flex-direction: column-reverse;
+    }
+
+    .container-info h1{
+        margin-top: -30px;
+    }
+
+    .form{
+        width: 330px;
+    }
+
+    .form button{
+        width: 100%;
+    }
+
+    #telefone{
+        margin-bottom: 32px;
+    }
+
+    .inputs input{
+        width: 97%;
+    }
+
+    textarea{
+        width: 100%;
+    }
+
+
+}
