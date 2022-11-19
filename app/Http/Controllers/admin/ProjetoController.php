@@ -10,8 +10,8 @@ use Illuminate\Http\Request;
 class ProjetoController extends Controller
 {
 
-    public function index(){
-        $projetos = Projeto::get();
+    public function index(Request $request){
+        $projetos = Projeto::where('titulo',  'LIKE' , "%{$request->search}%")->get();
         return view('user.projetos', compact('projetos'));
     }
 

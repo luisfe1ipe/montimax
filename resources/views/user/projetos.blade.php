@@ -45,6 +45,11 @@
             <p>Todos os nossos projetos são feitos de acordo com as regulamentações</p>
         </div>
 
+        <form action="{{ route('projeto.index') }}" method="get">
+            <input type="text" name="search" id="" placeholder="Digite aqui...">
+            <button>Pesquisar</button>
+        </form>
+
         @foreach ($projetos as $projeto)
             <div class="container-projeto">
                 <a href="{{ route('projeto.show', ['id' => $projeto->id]) }}">
