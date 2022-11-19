@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('img_quaternario')->nullable();
             $table->date('data_inicio')->nullable();
             $table->date('data_final')->nullable();
+            $table->timestamps();
         });
     }
 

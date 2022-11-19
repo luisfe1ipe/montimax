@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\ProjetoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,6 +17,14 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('home');
 // });
+
+
+
+Route::get('/projetos/criar', [ProjetoController::class, 'create'])->name('projeto.create');
+Route::post('/projetos/criar', [ProjetoController::class, 'store'])->name('projeto.store');
+
+
+
 Route::get('/inicio', function () {
     return view('user.index');
 })->name('inicio');
