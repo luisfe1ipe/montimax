@@ -54,7 +54,7 @@
             <div class="container-projeto">
                 <a href="{{ route('projeto.show', ['id' => $projeto->id]) }}">
                     <div class="img-projeto">
-                        <img src="" alt="">
+                        <img src="{{ url("storage/{$projeto->img_principal}") }}" alt="">
                     </div>
                 </a>
                 <a href="/visualizar-projeto.html">

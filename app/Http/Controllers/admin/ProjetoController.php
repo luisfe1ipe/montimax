@@ -21,6 +21,7 @@ class ProjetoController extends Controller
             return redirect()->back();
         }
         
+
         return view('user.visualizar-projeto', compact('projeto'));
     }
 
@@ -30,8 +31,14 @@ class ProjetoController extends Controller
     }
 
     public function store(StoreUpdateProjetoFormRequest $request){
+        $data = $request->all();
 
-        Projeto::create($request->all());
+        if($request->img_principal){
+            $data['img_principal'] = $request->img_principal->store('/projetos');
+        }
+
+
+        Projeto::create($data);
         
         return redirect()->route('projeto.index');
     }

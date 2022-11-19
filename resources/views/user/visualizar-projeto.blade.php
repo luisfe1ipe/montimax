@@ -42,8 +42,8 @@
       <div class="projeto">
         <div class="foto-projeto">
           <div class="foto-principal">
-           <a href="/assets/img/projeto.png">
-            <img src="/assets/img/projeto.png" alt="">
+           <a href="{{ url("storage/{$projeto->img_principal}") }}">
+            <img src="{{ url("storage/{$projeto->img_principal}") }}" alt="">
            </a>
           </div>
           <div class="container-foto-secundaria">

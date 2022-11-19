@@ -10,7 +10,7 @@
     
     <h1>Editar Projeto {{$projeto->titulo}}</h1>
 
-    <form action="{{ route('projeto.update', $projeto->id) }}" method="POST">
+    <form action="{{ route('projeto.update', $projeto->id) }}" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="_method" value="put">
         @csrf
         <input type="text" placeholder="titulo" name="titulo" value="{{ $projeto->titulo }}">

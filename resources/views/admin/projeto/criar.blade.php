@@ -10,11 +10,11 @@
     
     <h1>Criar Projeto</h1>
 
-    <form action="{{ route('projeto.store') }}" method="POST">
+    <form action="{{ route('projeto.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <input type="text" placeholder="titulo" name="titulo" value="{{ old('titulo') }}">
         <input type="text" placeholder="descricao" name="descricao" value="{{ old('descricao') }}">
-        <input type="text" placeholder="img_principal" name="img_principal">
+        <input type="file" placeholder="img_principal" name="img_principal">
         <input type="text" placeholder="img_secundaria" name="img_secundaria">
         <input type="text" placeholder="img_terciaria" name="img_terciaria">
         <input type="text" placeholder="img_quaternaria" name="img_quaternaria">
