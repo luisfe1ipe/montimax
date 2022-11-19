@@ -47,7 +47,7 @@
 
         @foreach ($projetos as $projeto)
             <div class="container-projeto">
-                <a href="/visualizar-projeto.html">
+                <a href="{{ route('projeto.show', ['id' => $projeto->id]) }}">
                     <div class="img-projeto">
                         <img src="" alt="">
                     </div>
@@ -65,6 +65,7 @@
                                 <img src="assets/svg/calendario.svg" alt="">
                                 {{$projeto->data_inicio}}
                             </span>
+                           
                         </div>
                     </div>
                 </a>

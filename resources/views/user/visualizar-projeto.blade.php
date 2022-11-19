@@ -38,7 +38,7 @@
 
   <div class="container">
     <div class="container-projeto">
-      <h1>Titulo projeto</h1>
+      <h1>{{$projeto->titulo}}</h1>
       <div class="projeto">
         <div class="foto-projeto">
           <div class="foto-principal">
@@ -66,24 +66,18 @@
         </div>
         <div class="descricao-projeto">
           <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Temporibus sunt ducimus suscipit sed maxime eveniet recusandae
-            architecto iusto ab provident obcaecati, a minima beatae facere hic voluptatem reprehenderit consequatur at!
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Temporibus sunt ducimus suscipit sed maxime eveniet recusandae
-            architecto iusto ab provident obcaecati, a minima beatae facere hic voluptatem reprehenderit consequatur at!
-            
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Temporibus sunt ducimus suscipit sed maxime eveniet recusandae
-            architecto iusto ab provident obcaecati, a minima beatae facere hic voluptatem reprehenderit consequatur at!Lorem ipsum,
-            dolor sit amet consectetur adipisicing elit. Temporibus sunt ducimus suscipit sed maxime eveniet recusandae
-            architecto iusto ab provident obcaecati, a minima beatae facere hic voluptatem reprehenderit consequatur at!
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Temporibus sunt ducimus suscipit sed maxime eveniet recusandae
-            architecto iusto ab provident obcaecati, a minima beatae facere hic voluptatem reprehenderit consequatur at!
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Temporibus sunt ducimus suscipit sed maxime eveniet recusandae
-            architecto iusto ab provident obcaecati, a minima beatae facere hic voluptatem reprehenderit consequatur at!
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Temporibus sunt ducimus suscipit sed maxime eveniet recusandae
-            architecto iusto ab provident obcaecati, a minima beatae facere hic voluptatem reprehenderit consequatur at!
+            {{$projeto->descricao}}
           </p>
         </div>
       </div>
+      <a href="{{ route('projeto.edit', ['id' => $projeto->id]) }}">editar</a>
+
+      <form action="{{ route('projeto.delete', $projeto->id) }}" method="POST">
+        @method('DELETE')
+        @csrf
+        <button type="submit">Excluir</button>
+      </form>
+
     </div>
   </div>
 

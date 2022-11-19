@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreUpdateProjetoFormRequest;
 use App\Models\Projeto;
 use Illuminate\Http\Request;
 
@@ -16,8 +17,11 @@ class ProjetoController extends Controller
 
     public function show($id){
 
-        return view('user.visualizar-projeto');
-    
+        if(!$projeto = Projeto::find($id)){
+            return redirect()->back();
+        }
+        
+        return view('user.visualizar-projeto', compact('projeto'));
     }
 
 
@@ -25,9 +29,39 @@ class ProjetoController extends Controller
         return view('admin.projeto.criar');
     }
 
-    public function store( Request $request){
+    public function store(StoreUpdateProjetoFormRequest $request){
 
         Projeto::create($request->all());
+        
+        return redirect()->route('projeto.index');
+    }
+
+    public function edit($id){
+
+        if(!$projeto = Projeto::find($id)){
+            return redirect()->back();
+        }
+
+        return view('admin.projeto.editar', compact('projeto'));
+    }
+
+    public function update(StoreUpdateProjetoFormRequest $request, $id){
+
+        if(!$projeto = Projeto::find($id)){
+            return redirect()->back();
+        }
+
+        $projeto->update($request->all());
+
+        return redirect()->route('projeto.index');
+    }
+
+    public function delete($id){
+        if(!$projeto = Projeto::find($id)){
+            return redirect()->back();
+        }
+
+        $projeto->delete();
         
         return redirect()->route('projeto.index');
     }
