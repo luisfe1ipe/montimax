@@ -8,6 +8,19 @@ use Illuminate\Http\Request;
 
 class ProjetoController extends Controller
 {
+
+    public function index(){
+        $projetos = Projeto::get();
+        return view('user.projetos', compact('projetos'));
+    }
+
+    public function show($id){
+
+        return view('user.visualizar-projeto');
+    
+    }
+
+
     public function create(){
         return view('admin.projeto.criar');
     }
@@ -16,6 +29,6 @@ class ProjetoController extends Controller
 
         Projeto::create($request->all());
         
-        // return redirect()->route();
+        return redirect()->route('projeto.index');
     }
 }
