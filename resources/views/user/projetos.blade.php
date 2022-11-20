@@ -45,10 +45,12 @@
             <p>Todos os nossos projetos são feitos de acordo com as regulamentações</p>
         </div>
 
-        <form action="{{ route('projeto.index') }}" method="get">
-            <input type="text" name="search" id="" placeholder="Digite aqui...">
-            <button>Pesquisar</button>
-        </form>
+        <div class="search">
+            <form action="{{ route('projeto.index') }}" method="get">
+                <input type="text" name="search" id="" placeholder="Digite aqui...">
+                <button>Pesquisar</button>
+            </form>
+        </div>
 
         @foreach ($projetos as $projeto)
             <div class="container-projeto">
@@ -66,7 +68,7 @@
                             {{ $projeto->descricao }}
                         </p>
                         <div class="categoria-data">
-                            <span><strong>Publicado:</strong> {{ $projeto->created_at }}</span>
+                            <span><strong>Publicado:</strong> {{ $projeto->created_at = date('d M Y') }}</span>
                         </div>
                     </div>
                 </a>

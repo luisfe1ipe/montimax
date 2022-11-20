@@ -35,7 +35,19 @@
         </div>
     </nav>
 
+
     <div class="container-criar">
+
+        @if ($errors->any())
+            <div class="errors">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
         <div class="form">
             <h1 class="titulo">
                 <div class="destaque"></div>Criar Projeto
@@ -56,7 +68,7 @@
                         <div class="descricao">
                             <label for="descricao">Descrição<span>*</span></label>
                             <br>
-                            <textarea name="descricao"  id="descricao" cols="55" rows="15"></textarea>
+                            <textarea name="descricao" id="descricao" cols="55" rows="15"></textarea>
                         </div>
 
 
@@ -66,7 +78,8 @@
                                 <div class="inicio">
                                     <label for="data_inicio">Data Inicio</label>
                                     <br>
-                                    <input type="date" name="data_inicio" id="data_inicio" value="{{ old('data_inicio') }}">
+                                    <input type="date" name="data_inicio" id="data_inicio"
+                                        value="{{ old('data_inicio') }}">
                                 </div>
 
                                 <div class="final">
@@ -108,17 +121,6 @@
 
     </div>
 
-    <h1>Criar Projeto</h1>
-
-   
-
-    @if ($errors->any())
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    @endif
 
 </body>
 

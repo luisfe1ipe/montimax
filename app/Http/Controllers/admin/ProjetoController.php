@@ -35,7 +35,8 @@ class ProjetoController extends Controller
     }
 
     public function store(StoreUpdateProjetoFormRequest $request){
-        $data = $request->all();
+        $data = $request->all();      
+
 
         if($request->img_principal){
             $data['img_principal'] = $request->img_principal->store('/projetos');
@@ -92,7 +93,20 @@ class ProjetoController extends Controller
             return redirect()->back();
         }
 
+        if($projeto->img_principal){
+            if(Storage::exists($projeto->img_principal)){
+                Storage::delete($projeto->img_principal);
+            }
+        }
+
+        if($projeto->img_secundaria){
+            if(Storage::exists($projeto->img_secundaria)){
+                Storage::delete($projeto->img_secundaria);
+            }
+        }
+
         $projeto->delete();
+
         
         return redirect()->route('projeto.index');
     }

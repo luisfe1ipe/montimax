@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nome projeto - MONTIMAX</title>
+    <title>{{$projeto->titulo}} - MONTIMAX</title>
 
     <link rel="icon" href="/assets/svg/M.svg">
     <link rel="stylesheet" href="/assets/css/navbar-footer.css">
@@ -46,11 +46,19 @@
             </div>
 
             <div class="data">
+                
+
                 @if ($projeto->data_inicio)
-                    <p><strong>Data inicio: </strong>{{ $projeto->data_inicio }}</p>
+                    
+                    <p><strong>Data inicio: </strong>{{ $projeto->data_inicio = date('d M Y') }}</p>
                 @endif
+
                 @if ($projeto->data_final)
-                    <p><strong>Data final: </strong>{{ $projeto->data_final }}</p>
+
+    
+
+                    <p><strong>Data final: </strong>{{ $projeto->data_final = date('d M Y')  }}</p>
+
                 @endif
 
             </div>
@@ -79,9 +87,8 @@
                 </div>
             </div>
 
-
-
         </div>
+
         <div class="btns">
             <a href="{{ route('projeto.edit', ['id' => $projeto->id]) }}">editar</a>
             <form action="{{ route('projeto.delete', $projeto->id) }}" method="POST">

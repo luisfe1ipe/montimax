@@ -8,14 +8,12 @@
 .container-projeto{
   width: 100%;
   min-height: 800px;
-  border: solid green;
 }
 
 
 .container-projeto .titulo-projeto{
   width: 100%;
   min-height: 68px;
-  border: solid red;
   margin-bottom: 24px;
   text-align: center;
 }
@@ -47,7 +45,7 @@
 }
 
 .projeto .descricao-projeto{
-  border: solid red;
+  width: 100%;
 }
 
 

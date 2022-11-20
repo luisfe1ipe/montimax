@@ -7,6 +7,12 @@
     justify-content: space-around;
 }
 
+.errors{
+    border: solid green;
+    color: #EF4243;
+    font-weight: bold;
+}
+
 .form{
     width: 785px;
     height: auto;
