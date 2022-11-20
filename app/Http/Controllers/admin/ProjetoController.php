@@ -11,7 +11,7 @@ class ProjetoController extends Controller
 {
 
     public function index(Request $request){
-        $projetos = Projeto::where('titulo',  'LIKE' , "%{$request->search}%")->get();
+        $projetos = Projeto::where('titulo',  'LIKE' , "%{$request->search}%")->orderBy('created_at', 'desc')->get();
         return view('user.projetos', compact('projetos'));
     }
 
@@ -35,6 +35,7 @@ class ProjetoController extends Controller
 
         if($request->img_principal){
             $data['img_principal'] = $request->img_principal->store('/projetos');
+            $data['img_secundaria'] = $request->img_secundaria->store('/projetos/secundaria');
         }
 
 

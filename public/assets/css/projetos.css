@@ -19,11 +19,12 @@ a{
 }
 
 .container-projeto{
-  padding-top: 50px;
+  margin-top: 50px;
   width: 1116px;
   border-bottom: 3px solid #EB5757;
   height: 195px;
   display: flex;
+
 }
 
 .img-projeto{
@@ -70,12 +71,12 @@ a{
   align-items: center;
 }
 .categoria-data img{
-  height: 16px;
+  height: 14px;
 }
 .categoria-data span{
-  font-weight: bold;
-  margin-left: 6px;
+  font-size: 14px;
 }
+
 
 
 
@@ -89,6 +90,7 @@ a{
     width: 375px;
     flex-direction: column;
     border: none;
+    margin-top: 24px;
   }
 
   .container-titulo{
@@ -111,11 +113,16 @@ a{
 
   .conteudo-projeto {
     margin-left: -24px;
-    height: 191px;
+    height: 110px;
     width: 375px;
     display: flex;
     flex-direction: column;
     margin: 0 auto;
+    text-align: center;
+  }
+
+  .container-projeto{
+    height: 320px;
   }
 
   .categoria-data{

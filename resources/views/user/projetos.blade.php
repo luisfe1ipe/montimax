@@ -57,20 +57,16 @@
                         <img src="{{ url("storage/{$projeto->img_principal}") }}" alt="">
                     </div>
                 </a>
-                <a href="/visualizar-projeto.html">
+                <a href="{{ route('projeto.show', ['id' => $projeto->id]) }}">
                     <div class="conteudo-projeto">
                         <h1>
-                            {{$projeto->titulo}}
+                            {{ $projeto->titulo }}
                         </h1>
                         <p>
-                            {{$projeto->descricao}}
+                            {{ $projeto->descricao }}
                         </p>
                         <div class="categoria-data">
-                            <span>
-                                <img src="assets/svg/calendario.svg" alt="">
-                                {{$projeto->data_inicio}}
-                            </span>
-                           
+                            <span><strong>Publicado:</strong> {{ $projeto->created_at }}</span>
                         </div>
                     </div>
                 </a>
