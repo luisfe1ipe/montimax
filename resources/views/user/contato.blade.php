@@ -12,9 +12,9 @@
 
 
     <!-- FONTES -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     
@@ -29,9 +29,9 @@
                 <div class="line3"></div>
             </div>
             <ul class="nav-list">
-                <li><a href="index.html" >INICIO</a></li>
-                <li><a href="projetos.html">PROJETOS</a></li>
-                <li><a href="contato.html" id="navbar-ativo">CONTATO</a></li>
+                <li><a href="index.html" >Início</a></li>
+                <li><a href="{{ route('projeto.index') }}">Projetos</a></li>
+                <li><a href="{{ route('contato.create') }}" id="navbar-ativo">Contato</a></li>
             </ul>
         </div>
     </nav>
@@ -39,17 +39,18 @@
     <div class="container-contato">
         <div class="form">
             <h1 class="titulo"><div class="destaque"></div>Form. Contato</h1>
-            <form action="">
+            <form action="{{ route('contato.create') }}" method="POST">
+                @csrf
                 <div class="inputs">
                     <div class="name">
-                        <label for="name">Nome <span>*</span></label>
+                        <label for="nome">Nome <span>*</span></label>
                         <br>
-                        <input type="text" name="name" id="name" required>
+                        <input type="text" name="nome" id="name" required>
                     </div>
                     <div class="telefone">
-                        <label for="phone">Telefone<span>*</span></label>
+                        <label for="telefone">Telefone<span>*</span></label>
                         <br>
-                        <input type="text" name="phone" id="phone" required>
+                        <input type="text" name="telefone" id="phone" required>
                     </div>
                     <div class="email">
                         <label for="email">E-mail<span>*</span></label>
@@ -57,14 +58,14 @@
                         <input type="email" name="email" id="email" required>
                     </div>
                     <div class="assunto">
-                        <label for="subject">Assunto<span>*</span></label>
+                        <label for="assunto">Assunto<span>*</span></label>
                         <br>
-                        <input type="text" name="subject" id="subject" required>
+                        <input type="text" name="assunto" id="subject" required>
                     </div>
                     <div class="mensagem">
-                        <label for="message">Mensagem<span>*</span></label>
+                        <label for="mensagem">Mensagem<span>*</span></label>
                         <br>
-                        <textarea name="message" id="message" cols="106" rows="15" required></textarea>
+                        <textarea name="mensagem" id="message" cols="106" rows="15" required></textarea>
                     </div>
                 </div>
                 <center>
@@ -84,6 +85,11 @@
                 <p>Tarumã, São Paulo</p>
             </div>
             <p id="telefone"><strong>Telefone:</strong> (18) 99999-9999</p>
+            <div class="btn">
+                <a href=" {{ route('contato.index') }}">
+                    <button>Ver todos contatos</button>
+                </a>
+            </div>
         </div>
     </div>
 

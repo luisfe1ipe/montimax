@@ -14,7 +14,8 @@ class ProjetoController extends Controller
     public function index(Request $request){
         $projetos = Projeto::where('titulo',  'LIKE' , "%{$request->search}%")
         ->orderBy('created_at', 'desc')
-        ->paginate(10);
+        ->paginate(10)
+        ->withQueryString();
 
         return view('user.projetos', compact('projetos'));
     }

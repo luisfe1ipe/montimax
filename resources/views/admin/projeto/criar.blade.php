@@ -49,9 +49,10 @@
         @endif
 
         <div class="form">
-            <h1 class="titulo">
-                <div class="destaque"></div>Criar Projeto
-            </h1>
+            <div class="titulo">
+                <div class="destaque"></div>
+                <h1>Criar projeto</h1>
+            </div>
             <form action="{{ route('projeto.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="inputs">
@@ -66,13 +67,27 @@
                     <div class="sub">
 
                         <div class="descricao">
-                            <label for="descricao">Descrição<span>*</span></label>
+                            <label for="descricao">Descrição<span> *</span></label>
                             <br>
                             <textarea name="descricao" id="descricao" cols="55" rows="15"></textarea>
                         </div>
 
 
                         <div class="data-img">
+                            
+                            <div class="img-input">
+                                <label for="img_principal">Imagem Principal<span> *</span></label>
+                                <br>
+                                <input type="file" name="img_principal" id="img_principal">
+                            </div>
+                            
+                            
+                            
+                            <div class="img-input">
+                                <label for="img_secundaria">Imagem Secundaria</label>
+                                <br>
+                                <input type="file" name="img_secundaria" id="img_secundaria">
+                            </div>
                             <div class="data">
 
                                 <div class="inicio">
@@ -87,20 +102,6 @@
                                     <br>
                                     <input type="date" name="data_final" id="data_final" value="{{ old('final') }}">
                                 </div>
-                            </div>
-
-                            <div class="img-input">
-                                <label for="img_principal">Imagem Principal<span>*</span></label>
-                                <br>
-                                <input type="file" name="img_principal" id="img_principal">
-                            </div>
-
-
-
-                            <div class="img-input">
-                                <label for="img_secundaria">Imagem Secundaria</label>
-                                <br>
-                                <input type="file" name="img_secundaria" id="img_secundaria">
                             </div>
 
 

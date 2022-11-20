@@ -9,7 +9,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="/assets/css/navbar-footer.css">
     <link rel="stylesheet" href="/assets/css/projetos.css">
@@ -27,9 +27,9 @@
                 <div class="line3"></div>
             </div>
             <ul class="nav-list">
-                <li><a href="index.html">INICIO</a></li>
-                <li><a href="projetos.html" id="navbar-ativo">PROJETOS</a></li>
-                <li><a href="contato.html">CONTATO</a></li>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="{{ route('projeto.index') }}" id="navbar-ativo">Projetos</a></li>
+                <li><a href="{{ route('contato.create') }}">Contato</a></li>
             </ul>
         </div>
     </nav>
@@ -39,9 +39,10 @@
 
 
         <div class="container-titulo">
-            <h1 class="titulo">
-                <div class="destaque"></div>Nossos Projetos
-            </h1>
+           <div class="titulo">
+            <div class="destaque"></div>
+            <h1>Nossos Projetos</h1>
+           </div>
             <p>Todos os nossos projetos são feitos de acordo com as regulamentações</p>
         </div>
 
