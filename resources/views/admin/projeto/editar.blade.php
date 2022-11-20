@@ -11,14 +11,12 @@
     <h1>Editar Projeto {{$projeto->titulo}}</h1>
 
     <form action="{{ route('projeto.update', $projeto->id) }}" method="POST" enctype="multipart/form-data">
-        <input type="hidden" name="_method" value="put">
+        @method('PUT')
         @csrf
         <input type="text" placeholder="titulo" name="titulo" value="{{ $projeto->titulo }}">
         <input type="text" placeholder="descricao" name="descricao" value="{{ $projeto->descricao }}">
-        <input type="text" placeholder="img_principal" name="img_principal" value="{{ $projeto->img_principal }}">
-        <input type="text" placeholder="img_secundaria" name="img_secundaria" value="{{ $projeto->img_secundaria }}">
-        <input type="text" placeholder="img_terciaria" name="img_terciaria" value="{{ $projeto->img_terciaria }}">
-        <input type="text" placeholder="img_quaternaria" name="img_quaternaria" value="{{ $projeto->img_quaternaria }}">
+        <input type="file" placeholder="img_principal" name="img_principal" value="{{ $projeto->img_principal }}">
+        <input type="file" placeholder="img_secundaria" name="img_secundaria" value="{{ $projeto->img_secundaria }}">
         <input type="text" placeholder="data_inicio" name="data_inicio" value="{{ $projeto->data_inicio }}">
         <input type="text" placeholder="data_final" name="data_final" value="{{ $projeto->data_final }}">
         <button type="submit">Editar</button>

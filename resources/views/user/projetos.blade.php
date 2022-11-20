@@ -73,7 +73,11 @@
             </div>
         @endforeach
 
-
+        <div class="paginate">
+            {{$projetos->appends([
+                'search' => request()->get('search', '')
+            ])->links()}}
+        </div>
     </div>
 
     <script src="/assets/js/mobile-navbar.js"></script>
