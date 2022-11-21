@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="/assets/css/todos-contato.css">
 
     {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> --}}
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -40,19 +41,30 @@
 
     <div class="container-contatos">
 
-        <div class="search">
-            <form action="{{ route('contato.index') }}" method="get">
-                <input type="text" name="search" id="" placeholder="Digite aqui...">
-                <button>Pesquisar</button>
-            </form>
+        <div class="btn-voltar">
+            <a href="{{ route('contato.create') }}">
+                <button>
+                    <i class="material-icons">arrow_back</i>
+                    voltar
+                </button>
+            </a>
+        </div>
 
+        <div class="cabecalho">
+            <div class="search">
+                <form action="{{ route('contato.index') }}" method="get">
+                    <input type="text" name="search" id="" placeholder="Digite aqui...">
+                    <button>Pesquisar</button>
+                </form>
+            </div>
             <div class="filtro">
-               <form action="{{ route('contato.index') }}" method="get">
-                    <select name="fill" id="">
-                        <option value="Lido">Lido</option>
-                        <option value="Não Lido">Não Lido</option>
+                <form action="{{ route('contato.index') }}" method="get">
+                    <select name="status" id="">
+                        <option value="">Todos</option>
+                        <option value="1">Lido</option>
+                        <option value="0">Não Lido</option>
                     </select>
-                    <button>Filtrar</button>
+                    <button type="submit">Filtrar</button>
                 </form>
             </div>
         </div>
@@ -70,16 +82,16 @@
             </thead>
             <tbody>
                 @foreach ($contatos as $contato)
-                <tr>
-                        @if ($contato->status == "Não Lido")
-                            <td class="status" style="color: red; font-weight: bold">{{ $contato->status }}</td>
+                    <tr>
+                        @if ($contato->status == false)
+                            <td class="status" style="color: red; font-weight: bold">Não Lido</td>
                         @else
-                            <td class="status" style="color: green; font-weight: bold">{{ $contato->status }}</td>
+                            <td class="status" style="color: green; font-weight: bold">Lido</td>
                         @endif
                         <td id="nome">{{ $contato->nome }}</td>
                         <td id="email">{{ $contato->email }}</td>
                         <td id="assunto">{{ $contato->assunto }}</td>
-                        <td>{{date('d M Y, H:i', strtotime($contato->created_at)) }}</td>
+                        <td>{{ date('d M Y, H:i', strtotime($contato->created_at)) }}</td>
                         <td>
                             <a href="{{ route('contato.show', ['id' => $contato->id]) }}">Ver</a>
                         </td>

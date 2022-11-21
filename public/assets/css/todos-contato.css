@@ -4,14 +4,14 @@
     padding-top: 150px;
 }
 
-#nome{
+#nome {
     width: 200px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis
 }
 
-#email{
+#email {
     width: 300px;
     white-space: nowrap;
     overflow: hidden;
@@ -25,55 +25,102 @@
     text-overflow: ellipsis
 }
 
-.status{
+.status {
     width: 80px;
 }
 
-table{
+a{
+    color: inherit;
+    text-decoration: none;
+}
+
+.btn-voltar{
+    margin-bottom: 18px;
+}
+
+.btn-voltar a button {
+    display: flex;
+    align-items: center;
+    width: 80px;
+    height: 28px;
+    border-radius: 4px;
+    background-color: #EB5757;
+    border: none;
+    font-weight: bold;
+    font-size: 16px;
+    color: #fff;
+    cursor: pointer;
+}
+
+table {
     text-align: center;
     width: 100%;
     border-collapse: collapse;
 }
 
-table thead{
+table thead {
     background-color: #252525;
     color: #fff;
     border: none;
     height: 28px;
 }
 
-table td{
+table td {
     padding: 6px;
-    border:1px solid #ccc;
+    border: 1px solid #ccc;
 }
 
 
-td a{
+td a {
     text-decoration: none;
     font-weight: bold;
-    color: #EB5757;
-}
-td a:hover{
-    color: #9b3d3d;
+    color: #252525;
 }
 
-.search{
-    width: 100%;
+td a:hover {
+    color: #EB5757;
+}
+
+.cabecalho {
     display: flex;
-    justify-content: center;
-    margin-bottom: 36px;
-  }
-  .search input{
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 38px;
+}
+
+.filtro form select {
+    width: 150px;
+    height: 28px;
+    padding-left: 6px;
+    border: 1.5px solid #EB5757;
+    border-radius: 4px;
+}
+
+.filtro form button {
+    width: 80px;
+    height: 28px;
+    border-radius: 0px 4px 4px 0px;
+    background-color: #EB5757;
+    border: none;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+    margin-left: -8px;
+}
+
+.search input {
     border: 1.5px solid #EB5757;
     border-radius: 4px 0px 0px 4px;
     width: 450px;
     height: 28px;
     padding-left: 6px;
-  }
-  .search input:focus-visible{
+}
+
+.search input:focus-visible {
     outline: none;
-  }
-  .search button{
+}
+
+.search button {
     width: 120px;
     height: 31px;
     border-radius: 0px 4px 4px 0px;
@@ -83,7 +130,8 @@ td a:hover{
     color: #fff;
     cursor: pointer;
     margin-left: -8px;
-  }
-  .search button:hover{
-      background-color: #ac3f3f;
-  }
+}
+
+.search button:hover {
+    background-color: #ac3f3f;
+}

@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('email');
             $table->string('assunto');
             $table->longText('mensagem');
-            $table->string('status')->default('Não Lido');
+            $table->boolean('status')->default(false);
             $table->timestamps();
         });
     }

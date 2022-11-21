@@ -10,18 +10,27 @@ class ContatoController extends Controller
 {
     public function index(Request $request){
         $search = $request->search;
-        $fill = $request->fill;
-        $contatos = Contato::where(function($query) use ($search){
+        $status = $request->status;
+        $dataFill = $request->dataFill; 
+        $contatos = Contato::where(function($query) use ($search,$status){
             if($search){
                 $query->where('nome', 'LIKE', "%{$search}%");
                 $query->orWhere('telefone', 'LIKE', "%{$search}%");
                 $query->orWhere('email', 'LIKE', "%{$search}%");
                 $query->orWhere('assunto', 'LIKE', "%{$search}%");
             }
+            if($status){
+                if ($status == true) {
+                    $query->where('status', true);
+                } else if ($status == false) {
+                    $query->where('status', false);
+                }
+            }
         })
         ->orderBy('created_at', 'asc')
         ->paginate(10)
         ->withQueryString();
+        
 
         return view('admin.contato.contatos',compact('contatos'));
     }
@@ -51,4 +60,6 @@ class ContatoController extends Controller
 
         return redirect()->route('contato.index');
     }
+
+    
 }
