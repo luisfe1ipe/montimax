@@ -53,6 +53,12 @@
             </form>
         </div>
 
+        <div class="criar-proj">
+            <a href="{{ route('projeto.create') }}">
+                <button>Criar Projeto</button>
+            </a>
+        </div>
+
         @foreach ($projetos as $projeto)
             <div class="container-projeto">
                 <a href="{{ route('projeto.show', ['id' => $projeto->id]) }}">
