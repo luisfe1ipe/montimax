@@ -3,44 +3,42 @@ a {
   color: inherit;
 }
 
-.container {
-  width: 1116px;
-  margin: 0 auto;
+
+.titulo{
+  margin-top: 100px;
 }
 
-.container-titulo {
+.titulo h1{
+  font-size: 32px;
+  font-weight: bold;
+}
+
+
+.pesquisar {
   width: 100%;
-  padding-top: 150px;
-}
-
-.container-titulo p {
-  margin-top: 12px;
-  font-size: 16px;
-}
-
-.search {
-  width: 100%;
+  height: 32px;
   display: flex;
   justify-content: center;
+  align-items: center;
   margin-top: 52px;
   margin-bottom: 28px;
 }
 
-.search input {
-  border: 1.5px solid #EB5757;
+.pesquisar input {
+  border: 2px solid #EB5757;
   border-radius: 4px 0px 0px 4px;
   width: 450px;
-  height: 28px;
+  height: 32px;
   padding-left: 6px;
 }
 
-.search input:focus-visible {
+.pesquisar input:focus-visible {
   outline: none;
 }
 
-.search button {
+.pesquisar form  button {
   width: 120px;
-  height: 31px;
+  height: 32px;
   border-radius: 0px 4px 4px 0px;
   background-color: #EB5757;
   border: none;
@@ -53,6 +51,10 @@ a {
 .search button:hover {
   background-color: #ac3f3f;
 }
+
+
+
+/*
 
 .criar-proj {
   width: 100%;
@@ -77,22 +79,31 @@ a {
   background-color: #252525;
 }
 
+*/
 
-
+.btn{
+  background-color: #EF4243;
+  color: #fff;
+}
+.btn:hover{
+  background-color: #252525;
+  color: #fff;
+}
 
 .container-projeto {
   margin-top: 50px;
-  width: 1116px;
   border-bottom: 3px solid #EB5757;
   height: 195px;
   display: flex;
+}
 
+.container-projeto a{
+  color: inherit;
 }
 
 .img-projeto {
   width: 356px;
-  height: 191px;
-  margin-top: 4px;
+  height: 192px;
 }
 
 .img-projeto img {
@@ -104,7 +115,7 @@ a {
 .conteudo-projeto {
   margin-left: 24px;
   height: 191px;
-  width: 736px;
+  width: 65%;
   display: flex;
   flex-direction: column;
 }
@@ -141,7 +152,8 @@ a {
 
 .categoria-data span {
   font-size: 14px;
-}
+} 
+
 
 
 
