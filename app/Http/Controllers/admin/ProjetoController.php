@@ -11,104 +11,137 @@ use Illuminate\Support\Facades\Storage;
 class ProjetoController extends Controller
 {
 
-    public function index(Request $request){
-        $projetos = Projeto::where('titulo',  'LIKE' , "%{$request->search}%")
-        ->orderBy('created_at', 'desc')
-        ->paginate(10)
-        ->withQueryString();
+    public function index(Request $request)
+    {
+        $projetos = Projeto::where('titulo',  'LIKE', "%{$request->search}%")
+            ->orderBy('created_at', 'desc')
+            ->paginate(1)
+            ->withQueryString();
 
         return view('user.projetos', compact('projetos'));
     }
 
-    public function show($id){
+    public function show($id)
+    {
 
-        if(!$projeto = Projeto::find($id)){
+        if (!$projeto = Projeto::find($id)) {
             return redirect()->back();
         }
-        
+
 
         return view('user.visualizar-projeto', compact('projeto'));
     }
 
 
-    public function create(){
+    public function create()
+    {
         return view('admin.projeto.criar');
     }
 
-    public function store(StoreUpdateProjetoFormRequest $request){
-        $data = $request->all();      
+    public function store(StoreUpdateProjetoFormRequest $request)
+    {
+        $data = $request->all();
+        // if($request->img_principal){
+        //     $data['img_principal'] = $request->img_principal->store('/projetos');
+        // }
 
-
-        if($request->img_principal){
-            $data['img_principal'] = $request->img_principal->store('/projetos');
+        if ($request->file('img_principal')) {
+            $imgNamePrincipal = $request->titulo . '-' . time() . '.' . $request->img_principal->extension();
+            $request->img_principal->move(public_path('img-projetos/principal'), $imgNamePrincipal);
+            $data['img_principal'] = $imgNamePrincipal;
         }
 
-        if($request->img_secundaria){
-            $data['img_secundaria'] = $request->img_secundaria->store('/projetos/secundaria');
-        }
 
+        if ($request->file('img_secundaria')) {
+            $imgNameSecundaria = $request->titulo . '-' . time() . '.' . $request->img_secundaria->extension();
+            $request->img_secundaria->move(public_path('img-projetos/secundaria'), $imgNameSecundaria);
+            $data['img_secundaria'] = $imgNameSecundaria;
+        }
 
         Projeto::create($data);
-        
+
         return redirect()->route('projeto.index');
     }
 
-    public function edit($id){
+    public function edit($id)
+    {
 
-        if(!$projeto = Projeto::find($id)){
+        if (!$projeto = Projeto::find($id)) {
             return redirect()->back();
         }
 
         return view('admin.projeto.editar', compact('projeto'));
     }
 
-    public function update(StoreUpdateProjetoFormRequest $request, $id){
+    public function update(StoreUpdateProjetoFormRequest $request, $id)
+    {
 
         $data = $request->all();
 
-        if(!$projeto = Projeto::find($id)){
+        if (!$projeto = Projeto::find($id)) {
             return redirect()->back();
         }
 
-        if($request->img_principal){
-            if(Storage::exists($projeto->img_principal)){
-                Storage::delete($projeto->img_principal);
+        // if($request->img_principal){
+        //     if(Storage::exists($projeto->img_principal)){
+        //         Storage::delete($projeto->img_principal);
+        //     }
+        //     $data['img_principal'] = $request->img_principal->store('/projetos');
+        // }
+
+        if ($request->img_principal) {
+            if (file_exists(public_path('img-projetos/principal/' . $projeto->img_principal))) {
+                unlink(public_path('img-projetos/principal/' . $projeto->img_principal));
             }
-            $data['img_principal'] = $request->img_principal->store('/projetos');
+            $imgNamePrincipal = $request->titulo . '-' . time() . '.' . $request->img_principal->extension();
+            $request->img_principal->move(public_path('img-projetos/principal'), $imgNamePrincipal);
+            $data['img_principal'] = $imgNamePrincipal;
         }
 
-        if($request->img_secundaria){
-            if(Storage::exists($projeto->img_secundaria)){
-                Storage::delete($projeto->img_secundaria);
+
+        if ($request->img_secundaria) {
+            if (!$projeto->img_secundaria) {
+                $imgNameSecundaria = $request->titulo . '-' . time() . '.' . $request->img_secundaria->extension();
+                $request->img_secundaria->move(public_path('img-projetos/secundaria'), $imgNameSecundaria);
+                $data['img_secundaria'] = $imgNameSecundaria;
             }
-            $data['img_secundaria'] = $request->img_secundaria->store('/projetos/secundaria');
+            if ($projeto->img_secundaria) {
+                unlink(public_path('img-projetos/secundaria/' . $projeto->img_secundaria));
+                $imgNameSecundaria = $request->titulo . '-' . time() . '.' . $request->img_secundaria->extension();
+                $request->img_secundaria->move(public_path('img-projetos/secundaria'), $imgNameSecundaria);
+                $data['img_secundaria'] = $imgNameSecundaria;
+            }
+
+            
         }
+
 
         $projeto->update($data);
 
         return redirect()->route('projeto.index');
     }
 
-    public function delete($id){
-        if(!$projeto = Projeto::find($id)){
+    public function delete($id)
+    {
+        if (!$projeto = Projeto::find($id)) {
             return redirect()->back();
         }
 
-        if($projeto->img_principal){
-            if(Storage::exists($projeto->img_principal)){
-                Storage::delete($projeto->img_principal);
+        if ($projeto->img_principal) {
+            if (file_exists(public_path('img-projetos/principal/' . $projeto->img_principal))) {
+                unlink(public_path('img-projetos/principal/' . $projeto->img_principal));
             }
         }
 
-        if($projeto->img_secundaria){
-            if(Storage::exists($projeto->img_secundaria)){
-                Storage::delete($projeto->img_secundaria);
+        if ($projeto->img_secundaria) {
+            if (file_exists(public_path('img-projetos/secundaria/' . $projeto->img_secundaria))) {
+                unlink(public_path('img-projetos/secundaria/' . $projeto->img_secundaria));
             }
         }
 
         $projeto->delete();
 
-        
+
         return redirect()->route('projeto.index');
     }
 }

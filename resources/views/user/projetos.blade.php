@@ -54,10 +54,10 @@
                                 <a class="nav-link" aria-current="page" href="#">Inicio</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link nav-active" href="#">Projetos</a>
+                                <a class="nav-link nav-active" href="{{ route('projeto.index') }}">Projetos</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Contato</a>
+                                <a class="nav-link" href="{{ route('contato.create') }}">Contato</a>
                             </li>
 
                         </ul>
@@ -74,11 +74,13 @@
     </div>
 
     <div class="container-sm">
-        <div class="pesquisar">
+        <div class="row">
+            <div class="pesquisar">
             <form action="{{ route('projeto.index') }}" method="get">
                 <input type="text" name="search" id="" placeholder="Digite aqui...">
                 <button class="">Pesquisar</button>
             </form>
+        </div>
         </div>
     </div>
 
@@ -92,7 +94,7 @@
             <div class="container-projeto ">
                 <a href="{{ route('projeto.show', ['id' => $projeto->id]) }}">
                     <div class="img-projeto">
-                        <img src="{{ url("storage/{$projeto->img_principal}") }}" alt="">
+                        <img src="{{ asset("img-projetos/principal/{$projeto->img_principal}") }}" alt="">
                     </div>
                 </a>
                 <div class="conteudo-projeto container-sm">

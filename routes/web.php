@@ -15,9 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('home');
-// });
+Route::get('/', function () {
+  return view('user.home');
+});
 
 Route::delete('/projetos/{id}' , [ProjetoController::class, 'delete'])->name('projeto.delete');
 Route::put('/projetos/{id}', [ProjetoController::class, 'update'])->name('projeto.update');

@@ -66,15 +66,15 @@
             <div class="projeto">
                 <div class="foto-projeto">
                     <div class="foto-principal">
-                        <a href="{{ url("storage/{$projeto->img_principal}") }}">
-                            <img src="{{ url("storage/{$projeto->img_principal}") }}" alt="">
+                        <a href="{{ asset("img-projetos/principal/{$projeto->img_principal}") }}">
+                            <img src="{{ asset("img-projetos/principal/{$projeto->img_principal}") }}" alt="">
                         </a>
                     </div>
                     <div class="container-foto-secundaria">
                         @if ($projeto->img_secundaria)
                             <div class="foto-secundaria">
-                                <a href="{{ url("storage/{$projeto->img_secundaria}") }}">
-                                    <img src="{{ url("storage/{$projeto->img_secundaria}") }}" alt="">
+                                <a href="{{ asset("img-projetos/secundaria/{$projeto->img_secundaria}") }}">
+                                    <img src="{{ asset("img-projetos/secundaria/{$projeto->img_secundaria}") }}" alt="">
                                 </a>
                             </div>
                         @endif
