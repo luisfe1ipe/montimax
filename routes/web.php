@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\ProjetoController;
 use App\Http\Controllers\ContatoController;
+use App\Models\Projeto;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,7 +17,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-  return view('user.home');
+  $projetos = Projeto::orderBy('created_at','desc')->get();
+  return view('user.home', compact('projetos'));
 });
 
 Route::delete('/projetos/{id}' , [ProjetoController::class, 'delete'])->name('projeto.delete');

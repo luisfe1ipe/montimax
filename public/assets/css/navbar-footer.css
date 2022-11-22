@@ -6,7 +6,24 @@ body{
     font-family: 'Inter', sans-serif;
 }
 
+h1{
+    font-weight: bold !important;
+}
 
+
+.btn-p{
+    background-color: #EF4243;
+    color: #fff;
+}
+.btn-p:hover{
+    background-color: #bb3636;
+    color: #fff;
+}
+.btn-p:active{
+    border: 1px solid #EF4243 !important;
+    color: #EF4243 !important;
+    background: transparent !important;
+}
 
 
 

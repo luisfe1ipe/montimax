@@ -16,7 +16,7 @@
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 
     <link rel="stylesheet" href="/assets/css/navbar-footer.css">
-    <link rel="stylesheet" href="/assets/css/projetos.css">
+    <link rel="stylesheet" href="/assets/css/index.css">
 </head>
 
 <body>
@@ -35,10 +35,10 @@
                     <div class="">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href="#">Inicio</a>
+                                <a class="nav-link nav-active" aria-current="page" href="#">Inicio</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link nav-active" href="{{ route('projeto.index') }}">Projetos</a>
+                                <a class="nav-link" href="{{ route('projeto.index') }}">Projetos</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('contato.create') }}">Contato</a>
@@ -51,32 +51,80 @@
         </div>
     </div>
 
+    <div class="img-painel">
+        <img src="{{ asset('assets/img/img-painel.png') }}" alt="">
 
-    <div class="container-sm titulo">
-        <h1>Sobre nós</h1>
-        <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio earum reiciendis magni soluta,
-            quibusdam ipsa dicta fuga quis corrupti, blanditiis nulla sequi numquam natus vitae. Aliquam, voluptatum
-            quibusdam. Eum, explicabo.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem assumenda hic minima a beatae consectetur
-            eos nostrum impedit fugit excepturi illum harum sequi, magnam eum sint? Laudantium mollitia eos omnis.
-        </p>
-    </div>
-
-    <div class="container-sm">
-        <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's content.</p>
+        <div class="container-sm">
+            <div class="conteudo-painel">
+                <h1>Precisa de algo ?</h1>
+                <p>
+                    Entre em contato para que possamos ajuda-lo
+                </p>
+                <a href="">
+                    <button class="btn btn-p">
+                        Contato
+                    </button>
+                </a>
             </div>
         </div>
     </div>
 
+    <div class="container-sm">
+        <div class="container-sobre">
+            <h1>Sobre nós</h1>
+            <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio earum reiciendis magni soluta,
+                quibusdam ipsa dicta fuga quis corrupti, blanditiis nulla sequi numquam natus vitae. Aliquam, voluptatum
+                quibusdam. Eum, explicabo.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem assumenda hic minima a beatae
+                consectetur
+                eos nostrum impedit fugit excepturi illum harum sequi, magnam eum sint? Laudantium mollitia eos omnis.
+            </p>
+        </div>
+    </div>
+
+    {{-- <div class="container-sm d-flex justify-content-between">
+      @foreach ($projetos as $key => $projeto)
+
+        @if ($key > 2)
+            @break
+        @endif
+            robson
+        @endforeach
+    </div> --}}
+
+
+    <div class="container-sm d-flex flex-column justify-content-between mt-5">
+        <h1>Nossos projetos</h1>
+        <div class="container-sm d-flex justify-content-between mt-3">
+            @foreach ($projetos as $key => $projeto)
+                {{-- @if ($key < 2)
+                @break
+            @endif --}}
+            <div class="card shadow" style="width: 22rem;">
+                <a href="{{ route('projeto.show', ['id' => $projeto->id]) }}">
+                    <img src="{{ asset("img-projetos/principal/{$projeto->img_principal}") }}" class="card-img-top"
+                        alt="...">
+                    <div class="card-body d-flex flex-column justify-content-center">
+                        <h5 class="card-title max-txt-card">{{ $projeto->titulo }}</h5>
+                        <p class="card-text max-txt-card">{{ $projeto->descricao }}</p>
+                    </div>
+                </a>
+                </div>
+        @endforeach
+    </div>
+    <div class="d-flex justify-content-center mt-5">
+        <a href="{{ route('projeto.index') }}" class="btn btn-p">Ver todos projetos</a>
+    </div>
+
+</div>
 
 
 
-    <script src="/assets/js/mobile-navbar.js"></script>
+<script src="/assets/js/mobile-navbar.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
+</script>
 
 </body>
 

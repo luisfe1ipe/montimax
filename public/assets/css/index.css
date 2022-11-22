@@ -1,156 +1,73 @@
-/* ----------------------- PAINEL ----------------------- */
-.img-painel{
-    background: url(/img/img-painel.png)  center;
-    width: 100%;
-    background-size: cover;
+a {
+    color: inherit;
+    text-decoration: none;
 }
 
-.container-painel{
-    height: 550px;
-    width: 1116px;
-    margin: 0 auto;
+a:hover {
+    color: #EF4243;
 }
-.conteudo-painel{
+
+
+.card-body h5 {
+    font-weight: bold;
+}
+
+.card img {
+    height: 230px;
+}
+
+
+
+/* ----------------------- PAINEL ----------------------- */
+.img-painel img {
     width: 100%;
+    height: 480px;
+    background-size: cover;
+    position: relative;
+}
+
+.conteudo-painel {
+    width: 500px;
     height: 210px;
     color: #FFFFFF;
+    position: absolute;
+    top: 0px;
 }
-.conteudo-painel h1{
+
+.conteudo-painel h1 {
     text-shadow: #252525 4px 4px 3px;
     font-size: 38px;
     padding-top: 186px;
     width: 358px;
 }
-.conteudo-painel p{
+
+.conteudo-painel p {
     margin-top: 6px;
     font-size: 18px;
 }
 
-.conteudo-painel form button{
-    width: 215px;
-    height: 38px;
-    background-color: #EF4243;
-    border: none;
-    border-radius: 4px;
-    color: #fff;
-    font-weight: bold;
-    font-size: 16px;
-    margin-top: 24px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-.conteudo-painel form button:hover{
-    background-color: #252525;
-    color: #fff;
-    transition: 0.3s;
-}
 
 
 
 /* ----------------------- SOBRE NOS ----------------------- */
 
 
-.container-section{
-    width: 1116px;
-    margin: 0 auto;
-    margin-top: 40px;
+
+.container-sobre {
+    margin-top: 38px;
 }
 
-.container-about{
+.max-txt-card {
     width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis
 }
-
-.container-about p{
-    font-size: 16px;
-}
-
 
 
 /* ----------------------- PROJETOS ----------------------- */
 
-.link-projeto{
-    text-decoration: none;
-    color: #000000;
-}
-.container-projetos{
-    margin-top: 70px;
-}
 
-.list-projetos{
-    margin-top: 38px;
-    display: flex;
-    justify-content: space-between;
-}
-
-.projeto{
-    width: 356px;
-    height: 320px;
-    display: flex;
-    flex-direction: column;
-    cursor: pointer;
-}
-
-
-.projeto img{
-    width: 100%;
-    height: 170px;
-}
-.container-desc{
-    height: 150px;
-    background-color: #F4F3F3;
-    overflow: hidden;
-}
-.sub{
-    display: flex;
-    justify-content: space-between;
-    margin: 6px;
-}
-.data{
-    display: flex;
-}
-.data img{
-    width: 13.27px;
-    height: 20px;
-    margin-right: 8px;
-}
-.data p {
-    font-size: 14px;
-    font-weight: bold;
-}
-
-.categoria{
-    font-size: 14px;
-    font-weight: bold;
-}
-
-.descricao{
-    font-size: 14px;
-    margin: 6px;
-}
-
-.view-all{
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-.view-all .all-button{
-    height: 40px;
-    width: 356px;
-    font-size: 18px;
-    font-weight: bold;
-    background-color: #EF4243;
-    border-radius: 4px;
-    border: none;
-    color: white;
-    padding: 10px;
-    cursor: pointer;
-    transition: 0.2s;
-}
-.view-all .all-button:hover{
-    background-color: #252525;
-    transition: 0.2s;
-}
 
 
 
@@ -165,7 +82,8 @@
         margin: 0 auto;
         width: 320px;
     }
-    .conteudo-painel h1{
+
+    .conteudo-painel h1 {
         width: 350px;
     }
 
@@ -192,7 +110,7 @@
         width: 330px;
     }
 
-    .view-all .all-button{
+    .view-all .all-button {
         width: 250px;
     }
 }
