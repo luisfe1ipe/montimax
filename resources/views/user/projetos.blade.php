@@ -42,7 +42,7 @@
     <div class="border-bottom border-danger">
         <div class="container-sm">
             <nav class="navbar navbar-expand-lg ">
-                <div class="container-fluid">
+                <div class="container-fluid container-sm">
                     <a class="navbar-brand" href="#"><img src="/assets/img/logo.png" alt=""></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -51,7 +51,7 @@
                     <div class="">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href="#">Inicio</a>
+                                <a class="nav-link" aria-current="page" href="{{ route('home') }}">Inicio</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link nav-active" href="{{ route('projeto.index') }}">Projetos</a>

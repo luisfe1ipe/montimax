@@ -23,9 +23,9 @@
 
 
 
-    <div class="border-bottom border-danger">
+    <div class="border-bottom border-danger fixed-top bg-white">
         <div class="container-sm">
-            <nav class="navbar navbar-expand-lg ">
+            <nav class="navbar navbar-expand-lg"> 
                 <div class="container-fluid">
                     <a class="navbar-brand" href="#"><img src="/assets/img/logo.png" alt=""></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -83,42 +83,35 @@
         </div>
     </div>
 
-    {{-- <div class="container-sm d-flex justify-content-between">
-      @foreach ($projetos as $key => $projeto)
-
-        @if ($key > 2)
-            @break
-        @endif
-            robson
-        @endforeach
-    </div> --}}
-
-
     <div class="container-sm d-flex flex-column justify-content-between mt-5">
         <h1>Nossos projetos</h1>
         <div class="container-sm d-flex justify-content-between mt-3">
             @foreach ($projetos as $key => $projeto)
-                {{-- @if ($key < 2)
-                @break
-            @endif --}}
             <div class="card shadow" style="width: 22rem;">
                 <a href="{{ route('projeto.show', ['id' => $projeto->id]) }}">
                     <img src="{{ asset("img-projetos/principal/{$projeto->img_principal}") }}" class="card-img-top"
-                        alt="...">
+                    alt="...">
                     <div class="card-body d-flex flex-column justify-content-center">
                         <h5 class="card-title max-txt-card">{{ $projeto->titulo }}</h5>
                         <p class="card-text max-txt-card">{{ $projeto->descricao }}</p>
                     </div>
                 </a>
-                </div>
-        @endforeach
-    </div>
-    <div class="d-flex justify-content-center mt-5">
-        <a href="{{ route('projeto.index') }}" class="btn btn-p">Ver todos projetos</a>
+            </div>
+            @if ($key == 2)
+                @break
+            @endif
+            @endforeach
+        </div>
+        <div class="d-flex justify-content-center mt-5">
+            <a href="{{ route('projeto.index') }}" class="btn btn-p">Ver todos projetos</a>
+        </div>
     </div>
 
-</div>
-
+    <footer>
+        <container class="sm">
+            <p></p>
+        </container>
+    </footer>
 
 
 <script src="/assets/js/mobile-navbar.js"></script>

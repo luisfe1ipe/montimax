@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
   $projetos = Projeto::orderBy('created_at','desc')->get();
   return view('user.home', compact('projetos'));
-});
+})->name('home');
 
 Route::delete('/projetos/{id}' , [ProjetoController::class, 'delete'])->name('projeto.delete');
 Route::put('/projetos/{id}', [ProjetoController::class, 'update'])->name('projeto.update');
