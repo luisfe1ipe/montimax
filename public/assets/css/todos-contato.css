@@ -1,11 +1,11 @@
 .container-contatos {
     margin: 0 auto;
     width: 1250px;
-    padding-top: 150px;
+    padding-top: 100px;
 }
 
 #nome {
-    width: 200px;
+    max-width: 150px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis
@@ -26,7 +26,7 @@
 }
 
 .status {
-    width: 80px;
+    width: 100px;
 }
 
 a{
@@ -34,52 +34,18 @@ a{
     text-decoration: none;
 }
 
-.btn-voltar{
-    margin-bottom: 18px;
-}
-
-.btn-voltar a button {
-    display: flex;
-    align-items: center;
-    width: 80px;
-    height: 28px;
-    border-radius: 4px;
-    background-color: #EB5757;
-    border: none;
-    font-weight: bold;
-    font-size: 16px;
-    color: #fff;
-    cursor: pointer;
-}
-
-table {
-    text-align: center;
-    width: 100%;
-    border-collapse: collapse;
-}
-
-table thead {
-    background-color: #252525;
-    color: #fff;
-    border: none;
-    height: 28px;
-}
-
-table td {
-    padding: 6px;
-    border: 1px solid #ccc;
-}
 
 
 td a {
     text-decoration: none;
-    font-weight: bold;
+    font-weight: bold !important;
     color: #252525;
 }
 
 td a:hover {
+    text-decoration: none;
     color: #EB5757;
-}
+} 
 
 .cabecalho {
     display: flex;

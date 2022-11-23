@@ -39,7 +39,7 @@
         </div>
     </nav> --}}
 
-    <div class="border-bottom border-danger">
+    <div class="border-bottom border-danger fixed-top bg-white">
         <div class="container-sm">
             <nav class="navbar navbar-expand-lg ">
                 <div class="container-fluid container-sm">
@@ -76,22 +76,22 @@
     <div class="container-sm">
         <div class="row">
             <div class="pesquisar">
-            <form action="{{ route('projeto.index') }}" method="get">
-                <input type="text" name="search" id="" placeholder="Digite aqui...">
-                <button class="">Pesquisar</button>
-            </form>
-        </div>
+                <form action="{{ route('projeto.index') }}" method="get">
+                    <input type="text" name="search" id="" placeholder="Digite aqui...">
+                    <button class="">Pesquisar</button>
+                </form>
+            </div>
         </div>
     </div>
 
     <div class="container-sm">
         <div class="d-flex justify-content-end">
             <a href="{{ route('projeto.create') }}">
-                <button class="btn btn-sm">Criar Projeto</button>
+                <button class="btn btn-p">Criar Projeto</button>
             </a>
         </div>
         @foreach ($projetos as $projeto)
-            <div class="container-projeto ">
+            <div class="container-projeto">
                 <a href="{{ route('projeto.show', ['id' => $projeto->id]) }}">
                     <div class="img-projeto">
                         <img src="{{ asset("img-projetos/principal/{$projeto->img_principal}") }}" alt="">

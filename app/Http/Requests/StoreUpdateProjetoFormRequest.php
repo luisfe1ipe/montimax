@@ -27,7 +27,7 @@ class StoreUpdateProjetoFormRequest extends FormRequest
         $rules = [
             'titulo' => 'required|string',
             'descricao' => 'required|string',
-            'img_principal' => 'image|required',
+            'img_principal' => 'required',
             'img_secundaria' => 'image|nullable',
             'data_inicio' => 'date|nullable',
             'data_final' => 'date|nullable'

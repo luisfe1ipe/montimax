@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="/assets/css/navbar-footer.css">
     <link rel="stylesheet" href="/assets/css/contato.css">
 
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
 
     <!-- FONTES -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,22 +22,33 @@
 <body>
     
     
-    <nav>
-        <div class="navbar">
-    
-            <a href="index.html"><img src="/assets/img/logo.png" alt=""></a>
-            <div class="mobile-menu">
-                <div class="line1"></div>
-                <div class="line2"></div>
-                <div class="line3"></div>
-            </div>
-            <ul class="nav-list">
-                <li><a href="index.html" >Início</a></li>
-                <li><a href="{{ route('projeto.index') }}">Projetos</a></li>
-                <li><a href="{{ route('contato.create') }}" id="navbar-ativo">Contato</a></li>
-            </ul>
+     <div class="border-bottom border-danger fixed-top bg-white">
+        <div class="container-sm ">
+            <nav class="navbar navbar-expand-lg ">
+                <div class="container-fluid container-sm">
+                    <a class="navbar-brand" href="#"><img src="/assets/img/logo.png" alt=""></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="{{ route('home') }}">Inicio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link nav-active" href="{{ route('projeto.index') }}">Projetos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('contato.create') }}">Contato</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </nav>
         </div>
-    </nav>
+    </div>
 
     <div class="container-contato">
         <div class="form">
@@ -69,7 +83,7 @@
                     </div>
                 </div>
                 <center>
-                    <button>Enviar</button>
+                    <button class="btn btn-danger w-25 m-3">Enviar</button>
                 </center>
             </form>
             
@@ -85,10 +99,8 @@
                 <p>Tarumã, São Paulo</p>
             </div>
             <p id="telefone"><strong>Telefone:</strong> (18) 99999-9999</p>
-            <div class="btn">
-                <a href=" {{ route('contato.index') }}">
-                    <button>Ver todos contatos</button>
-                </a>
+            <div class="d-flex justify-content-center">
+                <a href=" {{ route('contato.index') }}" class="btn btn-danger">Ver contatos</a>
             </div>
         </div>
     </div>

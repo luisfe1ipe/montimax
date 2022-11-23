@@ -15,7 +15,7 @@ class ProjetoController extends Controller
     {
         $projetos = Projeto::where('titulo',  'LIKE', "%{$request->search}%")
             ->orderBy('created_at', 'desc')
-            ->paginate(1)
+            ->paginate(8)
             ->withQueryString();
 
         return view('user.projetos', compact('projetos'));
@@ -57,8 +57,8 @@ class ProjetoController extends Controller
             $request->img_secundaria->move(public_path('img-projetos/secundaria'), $imgNameSecundaria);
             $data['img_secundaria'] = $imgNameSecundaria;
         }
-
         Projeto::create($data);
+        
 
         return redirect()->route('projeto.index');
     }

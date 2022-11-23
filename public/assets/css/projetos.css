@@ -4,11 +4,11 @@ a {
 }
 
 
-.titulo{
+.titulo {
   margin-top: 100px;
 }
 
-.titulo h1{
+.titulo h1 {
   font-size: 32px;
   font-weight: bold;
 }
@@ -36,7 +36,7 @@ a {
   outline: none;
 }
 
-.pesquisar form  button {
+.pesquisar form button {
   width: 120px;
   height: 32px;
   border-radius: 0px 4px 4px 0px;
@@ -81,23 +81,22 @@ a {
 
 */
 
-.btn{
-  background-color: #EF4243;
-  color: #fff;
-}
-.btn:hover{
-  background-color: #252525;
-  color: #fff;
-}
 
 .container-projeto {
-  margin-top: 50px;
+  margin-top: 24px;
   border-bottom: 3px solid #EB5757;
   height: 195px;
   display: flex;
+  transition: all .3s ease;
 }
 
-.container-projeto a{
+.container-projeto:hover {
+  -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
+}
+
+.container-projeto a {
   color: inherit;
 }
 
@@ -125,7 +124,8 @@ a {
   width: 100%;
   white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis
+  text-overflow: ellipsis;
+  padding-top: 6px;
 }
 
 .conteudo-projeto p {
@@ -152,7 +152,7 @@ a {
 
 .categoria-data span {
   font-size: 14px;
-} 
+}
 
 
 

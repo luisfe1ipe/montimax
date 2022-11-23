@@ -83,11 +83,12 @@
         </div>
     </div>
 
-    <div class="container-sm d-flex flex-column justify-content-between mt-5">
+    @if (count($projetos) > 0)
+        <div class="container-sm d-flex flex-column justify-content-between mt-5 projetos">
         <h1>Nossos projetos</h1>
         <div class="container-sm d-flex justify-content-between mt-3">
             @foreach ($projetos as $key => $projeto)
-            <div class="card shadow" style="width: 22rem;">
+            <div class="card" style="width: 22rem;">
                 <a href="{{ route('projeto.show', ['id' => $projeto->id]) }}">
                     <img src="{{ asset("img-projetos/principal/{$projeto->img_principal}") }}" class="card-img-top"
                     alt="...">
@@ -106,7 +107,8 @@
             <a href="{{ route('projeto.index') }}" class="btn btn-p">Ver todos projetos</a>
         </div>
     </div>
-
+    @endif
+    
     <footer>
         <container class="sm">
             <p></p>
