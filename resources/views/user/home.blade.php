@@ -71,7 +71,7 @@
 
     <div class="container-sm">
         <div class="container-sobre">
-            <h1>Sobre nós</h1>
+            <h2>Sobre nós</h2>
             <p>
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio earum reiciendis magni soluta,
                 quibusdam ipsa dicta fuga quis corrupti, blanditiis nulla sequi numquam natus vitae. Aliquam, voluptatum
@@ -85,7 +85,7 @@
 
     @if (count($projetos) > 0)
         <div class="container-sm d-flex flex-column justify-content-between mt-5 projetos">
-        <h1>Nossos projetos</h1>
+        <h2>Nossos projetos</h2>
         <div class="container-sm d-flex justify-content-between mt-3">
             @foreach ($projetos as $key => $projeto)
             <div class="card" style="width: 22rem;">
