@@ -102,7 +102,7 @@
                     <td id="assunto">{{ $contato->assunto }}</td>
                     <td>{{ date('d M Y, H:i', strtotime($contato->created_at)) }}</td>
                     <td>
-                        <a href="{{ route('contato.show', ['id' => $contato->id]) }}" class="btn btn-dark">Ver</a>
+                        <a href="{{ route('contato.edit', ['id' => $contato->id]) }}" class="btn btn-dark">Ver</a>
                     </td>
                 </tr>
             @endforeach

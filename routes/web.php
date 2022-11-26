@@ -32,7 +32,8 @@ Route::post('/projetos/criar', [ProjetoController::class, 'store'])->name('proje
 
 
 Route::delete('/contato/todos/{id}' , [ContatoController::class, 'delete'])->name('contato.delete');
+Route::put('/contato/todos/{id}', [ContatoController::class, 'update'])->name('contato.update');
+Route::get('/contato/todos/{id}', [ContatoController::class, 'edit'])->name('contato.edit');
 Route::get('/contato/todos', [ContatoController::class, 'index'])->name('contato.index');
-Route::get('/contato/todos/{id}', [ContatoController::class, 'show'])->name('contato.show');
 Route::get('/contato', [ContatoController::class, 'create'])->name('contato.create');
 Route::post('/contato', [ContatoController::class, 'store'])->name('contato.store');

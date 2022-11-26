@@ -6,7 +6,6 @@
 }
 
 
-
 .container-projeto {
   width: 100%;
   min-height: 800px;
@@ -51,10 +50,6 @@
 .btns form button:hover {
   color: #fff
 }
-
-
-
-
 
 
 @media (max-width: 768px) {

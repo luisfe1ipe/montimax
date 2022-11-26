@@ -15,9 +15,9 @@
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
 </head>
 
@@ -78,10 +78,10 @@
                         <div id="carouselExampleControls"
                         class="carousel slide d-flex justify-content-center align-content-center"
                         data-bs-ride="carousel">
-                        <div class="carousel-inner" style="width: 600px; height:400px; ">
-                            <div class="carousel-item active">
+                        <div class="carousel-inner" style="width: 700px; height:400px; ">
+                            <div class="carousel-item active ">
                                 <img src="{{ asset("img-projetos/principal/{$projeto->img_principal}") }}"
-                                    class="d-block w-100 h-100" alt="...">
+                                    class="d-block w-100 h-100 shadow" alt="...">
                             </div>
                             <div class="carousel-item">
                                 <img src="{{ asset("img-projetos/secundaria/{$projeto->img_secundaria}") }}"

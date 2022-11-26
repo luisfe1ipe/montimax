@@ -46,14 +46,14 @@ class ProjetoController extends Controller
         // }
 
         if ($request->file('img_principal')) {
-            $imgNamePrincipal = $request->titulo . '-' . time() . '.' . $request->img_principal->extension();
+            $imgNamePrincipal = time() . '.' . $request->img_principal->extension();
             $request->img_principal->move(public_path('img-projetos/principal'), $imgNamePrincipal);
             $data['img_principal'] = $imgNamePrincipal;
         }
 
 
         if ($request->file('img_secundaria')) {
-            $imgNameSecundaria = $request->titulo . '-' . time() . '.' . $request->img_secundaria->extension();
+            $imgNameSecundaria =  time() . '.' . $request->img_secundaria->extension();
             $request->img_secundaria->move(public_path('img-projetos/secundaria'), $imgNameSecundaria);
             $data['img_secundaria'] = $imgNameSecundaria;
         }

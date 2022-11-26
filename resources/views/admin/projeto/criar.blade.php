@@ -12,7 +12,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
@@ -56,11 +56,11 @@
             @csrf
             <div class="pt-3">
                 <label for="titulo" class="form-label">Titulo</label>
-                <input type="text" name="titulo" class="form-control" id="exampleFormControlInput1" required>
+                <input type="text" name="titulo" class="form-control" id="" required>
             </div>
             <div class="pt-3">
                 <label for="descricao" class="form-label">Descricão</label>
-                <textarea class="form-control" name="descricao" id="exampleFormControlTextarea1" rows="8" required></textarea>
+                <textarea class="form-control" name="descricao" id="" rows="8" required></textarea>
             </div>
 
             <div class="pt-3">
@@ -90,72 +90,6 @@
             </div>
         </form>
 
-        
-
-        {{--
-
-        
-
-        <div class="form pt-5">
-            <div class="titulo">
-                <div class="destaque"></div>
-                <h1>Criar projeto</h1>
-            </div>
-            <form action="{{ route('projeto.store') }}" method="POST" enctype="multipart/form-data">
-                @csrf
-                <div class="inputs">
-                    <div class="name">
-                        <label for="titulo">Titulo <span>*</span></label>
-                        <br>
-                        <input type="text" placeholder="Digite aqui..." name="titulo" value="{{ old('titulo') }}">
-                    </div>
-
-
-
-                    <div class="sub">
-
-                        <div class="descricao">
-                            <label for="descricao">Descrição<span> *</span></label>
-                            <br>
-                            <textarea name="descricao" id="descricao" cols="55" rows="15"></textarea>
-                        </div>
-
-
-                        <div class="data-img">
-                            
-                            <div class="img-input">
-                                <label for="img_principal">Imagem Principal<span> *</span></label>
-                                <br>
-                                <input type="file" name="img_principal" id="img_principal">
-                            </div>
-                            
-                            
-                            
-                            <div class="img-input">
-                                <label for="img_secundaria">Imagem Secundaria</label>
-                                <br>
-                                <input type="file" name="img_secundaria" id="img_secundaria">
-                            </div>
-                            <div class="data">
-
-                                
-                            </div>
-
-
-                        </div>
-
-                    </div>
-
-
-                </div>
-
-                <div class="btns">
-                    <a href="{{ route('projeto.index') }}">Cancelar</a>
-                    <button type="submit">Enviar</button>
-                </div>
-            </form> --}}
-
-        {{-- </div> --}}
 
     </div>
 

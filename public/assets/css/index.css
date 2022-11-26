@@ -14,6 +14,7 @@ a:hover {
 
 .card img {
     height: 230px;
+    object-fit: cover;
 }
 
 
