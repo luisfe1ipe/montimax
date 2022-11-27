@@ -39,7 +39,9 @@ h1{
     font-weight: bold;
     color: #000000;
     text-decoration: none;
-    margin-left: 32px;
+}
+.nav-item{
+    margin-left: 24px;
 }
 .nav-item a:hover{
     color: #EF4243;

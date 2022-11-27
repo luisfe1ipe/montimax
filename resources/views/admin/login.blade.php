@@ -17,33 +17,6 @@
 </head>
 <body>
 
-    <div class="border-bottom border-danger fixed-top bg-white">
-        <div class="container-sm">
-            <nav class="navbar navbar-expand-lg ">
-                <div class="container-fluid container-sm d-flex justify-content-center">
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="">
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href="{{ route('home') }}">Inicio</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link nav-active" href="{{ route('projeto.index') }}">Projetos</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('contato.create') }}">Contato</a>
-                            </li>
-
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        </div>
-    </div>
-
     <div class="container-sm d-flex align-items-center justify-content-center " style="height: 500px; margin-top:50px">
         <div class="login-container">
             <div class="header d-flex flex-column align-items-center justify-content-center">
@@ -61,9 +34,13 @@
                     <input type="password" class="form-control" name="password" id="" rows="8" required>
                 </div>
     
-                <div class="btns d-flex justify-content-center mt-5">
+                <div class="btns d-flex justify-content-center mt-5 mb-4">
                     <button type="submit" class="btn btn-p w-100">Entrar</button>
                 </div>
+
+                <center>
+                    <a href="{{ route('home') }}" class="text-dark">Continuar sem conta</a>
+                </center>
     
             </form>
         </div>

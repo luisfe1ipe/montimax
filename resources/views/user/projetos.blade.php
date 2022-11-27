@@ -50,6 +50,19 @@
                     </button>
                     <div class="">
                         <ul class="navbar-nav">
+                            @auth
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                  Admin
+                                </a>
+                                <ul class="dropdown-menu">
+                                  <li><a class="dropdown-item" href="{{ route('projeto.create') }}">Criar projeto</a></li>
+                                  <li><a class="dropdown-item" href="{{ route('contato.index') }}">Visualizar contatos</a></li>
+                                  <li><hr class="dropdown-divider"></li>
+                                  <li><a class="dropdown-item" href="{{ route('admin.logout') }}">Logout</a></li>
+                                </ul>
+                            </li>
+                            @endauth
                             <li class="nav-item">
                                 <a class="nav-link" aria-current="page" href="{{ route('home') }}">Inicio</a>
                             </li>
@@ -74,20 +87,7 @@
     </div>
 
     <div class="container-sm d-flex flex-column align-items-center ">
-        @auth
-            <div class="row mt-5">
-                <div class="dropdown">
-                    <button class="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        {{ $user->email }}
-                    </button>
-                    <ul class="dropdown-menu dropdown-menu-dark">
-                        <li><a class="dropdown-item" href="{{ route('projeto.create') }}">Criar Projeto</a></li>
-                        <li><a class="dropdown-item" href="{{ route('contato.index') }}">Ver Contatos</a></li>
-                        <li><a class="dropdown-item" href="{{ route('admin.logout') }}">Logout</a></li>
-                    </ul>
-                </div>
-            </div>
-        @endauth
+       
         <div class="row">
             <div class="pesquisar">
                 <form action="{{ route('projeto.index') }}" method="get">
