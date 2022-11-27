@@ -13,10 +13,17 @@ class UserController extends Controller
     }
 
     public function auth(Request $request){
-        if(Auth::attempt(['email' => $request->email, 'password' => $request->password])){
-            dd('logado');
-        }else{
-            dd('nao logado');
+        if(Auth::attempt(['email' => $request->email, 'password' => $request->password, 'is_admin' => true])){
+            return redirect()->route('projeto.index');
+        }
+
+        return redirect()->route('admin.login')->with('mensagem', 'E-mail ou senha inválidos');
+    }
+
+    public function logout(){
+        if(Auth::check()){
+            Auth::logout();
+            return redirect()->route('admin.login');
         }
     }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUpdateProjetoFormRequest;
 use App\Models\Projeto;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -13,12 +14,14 @@ class ProjetoController extends Controller
 
     public function index(Request $request)
     {
+        $user = User::first();
+
         $projetos = Projeto::where('titulo',  'LIKE', "%{$request->search}%")
             ->orderBy('created_at', 'desc')
             ->paginate(8)
             ->withQueryString();
 
-        return view('user.projetos', compact('projetos'));
+        return view('user.projetos', compact('projetos', 'user'));
     }
 
     public function show($id)

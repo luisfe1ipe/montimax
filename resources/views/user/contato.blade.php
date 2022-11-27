@@ -99,9 +99,11 @@
                 <p>Tarumã, São Paulo</p>
             </div>
             <p id="telefone"><strong>Telefone:</strong> (18) 99999-9999</p>
-            <div class="d-flex justify-content-center">
+           @auth
+           <div class="d-flex justify-content-center">
                 <a href=" {{ route('contato.index') }}" class="btn btn-danger">Ver contatos</a>
             </div>
+           @endauth
         </div>
     </div>
 

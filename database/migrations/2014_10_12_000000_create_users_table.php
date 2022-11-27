@@ -27,6 +27,9 @@ return new class extends Migration
 
         $admin = new User(['name' => 'AdminMontimax', 'email' => 'admin@montimax.com', 'is_admin' => true, 'password' => bcrypt('Admin@Montimax!187210')]);
         $admin->save();
+
+        $user = new User(['name' => 'Robson Teste', 'email' => 'robson@gmail.com', 'is_admin' => false, 'password' => bcrypt('robson123')]);
+        $user->save();
     }
 
     /**

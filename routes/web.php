@@ -42,3 +42,4 @@ Route::post('/contato', [ContatoController::class, 'store'])->name('contato.stor
 
 Route::get('/admin-login', [UserController::class, 'login'])->name('admin.login');
 Route::post('/admin-login', [UserController::class, 'auth'])->name('admin.auth');
+Route::get('/admin-logout', [UserController::class, 'logout'])->name('admin.logout');

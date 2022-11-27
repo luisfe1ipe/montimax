@@ -12,7 +12,7 @@ h1{
 
 
 .btn-p{
-    background-color: #EF4243;
+    background-color: #EB5757;
     color: #fff; 
 }
 .btn-p:hover{
@@ -99,6 +99,17 @@ h1{
 
 #navbar-ativo{
     color: #EF4243;
+}
+
+
+*/
+.login-container{
+    width: 410px;
+    margin: 0 auto;
+}
+
+.login-container .header p{
+    font-size: 18px;
 }
 
 

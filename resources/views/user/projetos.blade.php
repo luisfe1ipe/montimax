@@ -73,7 +73,21 @@
         <p>Todos os nossos projetos são feitos de acordo com as regulamentações</p>
     </div>
 
-    <div class="container-sm">
+    <div class="container-sm d-flex flex-column align-items-center ">
+        @auth
+            <div class="row mt-5">
+                <div class="dropdown">
+                    <button class="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        {{ $user->email }}
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-dark">
+                        <li><a class="dropdown-item" href="{{ route('projeto.create') }}">Criar Projeto</a></li>
+                        <li><a class="dropdown-item" href="{{ route('contato.index') }}">Ver Contatos</a></li>
+                        <li><a class="dropdown-item" href="{{ route('admin.logout') }}">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        @endauth
         <div class="row">
             <div class="pesquisar">
                 <form action="{{ route('projeto.index') }}" method="get">
@@ -85,11 +99,8 @@
     </div>
 
     <div class="container-sm">
-        <div class="d-flex justify-content-end">
-            <a href="{{ route('projeto.create') }}">
-                <button class="btn btn-p">Criar Projeto</button>
-            </a>
-        </div>
+    
+
         @foreach ($projetos as $projeto)
             <div class="container-projeto">
                 <a href="{{ route('projeto.show', ['id' => $projeto->id]) }}">
@@ -122,6 +133,8 @@
     </div>
 
     <script src="/assets/js/mobile-navbar.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
 
 </body>
 
