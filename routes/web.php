@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\ProjetoController;
 use App\Http\Controllers\ContatoController;
+use App\Http\Controllers\UserController;
 use App\Models\Projeto;
 use Illuminate\Support\Facades\Route;
 
@@ -37,3 +38,7 @@ Route::get('/contato/todos/{id}', [ContatoController::class, 'edit'])->name('con
 Route::get('/contato/todos', [ContatoController::class, 'index'])->name('contato.index');
 Route::get('/contato', [ContatoController::class, 'create'])->name('contato.create');
 Route::post('/contato', [ContatoController::class, 'store'])->name('contato.store');
+
+
+Route::get('/admin-login', [UserController::class, 'login'])->name('admin.login');
+Route::post('/admin-login', [UserController::class, 'auth'])->name('admin.auth');
