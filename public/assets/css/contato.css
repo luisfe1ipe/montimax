@@ -19,10 +19,12 @@
 .name{
     margin-top: 24px;
     font-weight: bold;
+    position: relative;
 }
 .telefone, .email, .assunto, .mensagem{
     margin-top: 6px;
     font-weight: bold;
+    position: relative;
 }
 
 .inputs input{
@@ -30,7 +32,14 @@
     height: 30px;
     border-radius: 4px;
     padding: 4px;
+    margin-bottom: 12px;
     border: 1.8px solid #000000;
+}
+
+.inputs p{
+    font-size: 14px;
+    position: absolute;
+    bottom: -22px;
 }
 .inputs span{
     color: #EB5757;
