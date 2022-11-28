@@ -42,13 +42,13 @@
     <div class="border-bottom border-danger fixed-top bg-white">
         <div class="container-sm">
             <nav class="navbar navbar-expand-lg ">
-                <div class="container-fluid container-sm">
+                <div class="container-fluid">
                     <a class="navbar-brand" href="#"><img src="/assets/img/logo.png" alt=""></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <div class="">
+                    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                         <ul class="navbar-nav">
                             @auth
                             <li class="nav-item dropdown">
