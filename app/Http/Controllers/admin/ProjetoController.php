@@ -31,7 +31,6 @@ class ProjetoController extends Controller
             return redirect()->back();
         }
 
-
         return view('user.visualizar-projeto', compact('projeto'));
     }
 
@@ -124,8 +123,11 @@ class ProjetoController extends Controller
         return redirect()->route('projeto.index');
     }
 
-    public function delete($id)
+    public function delete(Request $request)
     {
+        $id = $request->projeto_deletar_id;
+
+
         if (!$projeto = Projeto::find($id)) {
             return redirect()->back();
         }

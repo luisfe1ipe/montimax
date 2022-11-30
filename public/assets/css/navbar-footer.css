@@ -6,23 +6,35 @@ body{
     font-family: 'Inter', sans-serif !important;
 }
 
-h1{
+h1,h2{
     font-weight: bold !important;
 }
 
 
-.btn-p{
-    background-color: #EB5757;
+
+#btn-p{
+    background-color: #EF4243;
     color: #fff; 
 }
-.btn-p:hover{
+#btn-p:hover{
     background-color: #bb3636;
     color: #fff;
 }
-.btn-p:active{
+#btn-p:active{
     border: 1px solid #EF4243 !important;
     color: #EF4243 !important;
     background: transparent !important;
+}
+
+#btn-s {
+    background-color: transparent;
+    color: #EF4243;
+    border: 2px solid #EF4243;
+}
+
+#btn-s:hover {
+    background-color: #ccc;
+    color: #EF4243;
 }
 
 

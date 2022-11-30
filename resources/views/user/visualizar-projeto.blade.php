@@ -110,7 +110,7 @@
             <form action="{{ route('projeto.delete', $projeto->id) }}" method="POST">
                 @method('DELETE')
                 @csrf
-                <button type="submit" class="btn bg-danger">Excluir</button>
+                <button type="submit" class="btn" id="btn-p">Excluir</button>
             </form>
         </div>
     </div>

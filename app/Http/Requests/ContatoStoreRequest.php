@@ -25,7 +25,7 @@ class ContatoStoreRequest extends FormRequest
     {
         return [
             'nome' => 'required|min:3',
-            'telefone' => 'required|numeric',
+            'telefone' => 'required|string|min:11',
             'email' => 'required|string',
             'assunto' => 'required|string',
             'mensagem' => 'required|string',

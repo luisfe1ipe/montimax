@@ -61,7 +61,7 @@
                     Entre em contato para que possamos ajuda-lo
                 </p>
                 <a href="">
-                    <button class="btn btn-p">
+                    <button class="btn" id="btn-p">
                         Contato
                     </button>
                 </a>
@@ -104,7 +104,7 @@
             @endforeach
         </div>
         <div class="d-flex justify-content-center mt-5">
-            <a href="{{ route('projeto.index') }}" class="btn btn-p">Ver todos projetos</a>
+            <a href="{{ route('projeto.index') }}" class="btn" id="btn-p">Ver todos projetos</a>
         </div>
     </div>
     @endif

@@ -14,6 +14,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
 
     <!-- FONTES -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,6 +23,14 @@
 </head>
 
 <body>
+    <script src="{{ URL::asset('https://code.jquery.com/jquery-3.6.1.min.js') }}"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="{{ URL::asset('assets/js/jquery.mask.js') }}"></script>
+    <script>
+        $(function() {
+            $('#phone').mask('(00) 00000-0000');
+        });
+    </script>
 
 
     <div class="border-bottom border-danger fixed-top bg-white">
@@ -64,40 +73,62 @@
                     <div class="name">
                         <label for="nome">Nome <span>*</span></label>
                         <br>
-                        <input type="text" name="nome" id="name" 
-                            class="@if ($errors->has('nome')) 
-                            alert alert-danger border-danger
-                            @endif"
-                        >
+                        <input type="text" name="nome" id="name"
+                            class="@if ($errors->has('nome')) alert alert-danger border-danger @endif">
                         @if ($errors->has('nome'))
                             @foreach ($errors->get('nome') as $error)
-                                <p class="text-danger" role="alert">{{$error}}</p>
+                                <p class="text-danger" role="alert">{{ $error }}</p>
                             @endforeach
                         @endif
                     </div>
                     <div class="telefone">
                         <label for="telefone">Telefone<span>*</span></label>
                         <br>
-                        <input type="text" name="telefone" id="phone">
+                        <input type="text" name="telefone" id="phone" value="{{ old('telefone') }}"
+                            class="@if ($errors->has('telefone')) alert alert-danger border-danger @endif">
+                        @if ($errors->has('telefone'))
+                            @foreach ($errors->get('telefone') as $error)
+                                <p class="text-danger " role="alert">{{ $error }}</p>
+                            @endforeach
+                        @endif
                     </div>
                     <div class="email">
                         <label for="email">E-mail<span>*</span></label>
                         <br>
-                        <input type="email" name="email" id="email">
+                        <input type="email" name="email" id="email" value="{{ old('email') }}"
+                            class="@if ($errors->has('email')) alert alert-danger border-danger @endif">
+                        @if ($errors->has('email'))
+                            @foreach ($errors->get('email') as $error)
+                                <p class="text-danger " role="alert">{{ $error }}</p>
+                            @endforeach
+                        @endif
                     </div>
                     <div class="assunto">
                         <label for="assunto">Assunto<span>*</span></label>
                         <br>
-                        <input type="text" name="assunto" id="subject">
+                        <input type="text" name="assunto" id="subject" value="{{ old('assunto') }}"
+                            class="@if ($errors->has('assunto')) alert alert-danger border-danger @endif">
+                        @if ($errors->has('assunto'))
+                            @foreach ($errors->get('assunto') as $error)
+                                <p class="text-danger " role="alert">{{ $error }}</p>
+                            @endforeach
+                        @endif
                     </div>
                     <div class="mensagem">
                         <label for="mensagem">Mensagem<span>*</span></label>
                         <br>
-                        <textarea name="mensagem" id="message" cols="106" rows="15"></textarea>
+                        <textarea name="mensagem" id="message" cols="106" rows="15"
+                            class="p-2 @if ($errors->has('mensagem')) alert alert-danger border-danger @endif">{{ old('mensagem') }}</textarea>
+                        @if ($errors->has('mensagem'))
+                            @foreach ($errors->get('mensagem') as $error)
+                                <p class="text-danger " role="alert">{{ $error }}</p>
+                            @endforeach
+                        @endif
+
                     </div>
                 </div>
                 <center>
-                    <button type="submit" class="btn btn-danger w-25 m-3">Enviar</button>
+                    <button type="submit" class="btn w-25 m-3" id="btn-p">Enviar</button>
                 </center>
             </form>
 

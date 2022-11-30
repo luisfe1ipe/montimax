@@ -73,7 +73,7 @@
                 <input class="form-control" name="img_secundaria" type="file" id="formFile">
             </div>
 
-            <div class="data">
+            <div class="data container-sm">
                 <div class="inicio">
                     <label for="data_inicio">Data Inicio</label>
                     <input type="date" name="data_inicio" id="">

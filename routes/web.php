@@ -22,7 +22,7 @@ Route::get('/', function () {
   return view('user.home', compact('projetos'));
 })->name('home');
 
-Route::delete('/projetos/{id}' , [ProjetoController::class, 'delete'])->name('projeto.delete');
+Route::post('/projetos' , [ProjetoController::class, 'delete'])->name('projeto.delete');
 Route::put('/projetos/{id}', [ProjetoController::class, 'update'])->name('projeto.update');
 Route::get('/projetos/{id}/editar', [ProjetoController::class, 'edit'])->name('projeto.edit');
 Route::get('/projetos', [ProjetoController::class, 'index'])->name('projeto.index');
