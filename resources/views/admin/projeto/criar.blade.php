@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Cadastrar Projeto - MONTIMAX</title>
+
+    <link rel="icon" href="/assets/svg/M.svg">
 
     <link rel="stylesheet" href="/assets/css/criar-projeto.css">
     <link rel="stylesheet" href="/assets/css/navbar-footer.css">
@@ -24,14 +26,32 @@
     <div class="border-bottom border-danger fixed-top bg-white">
         <div class="container-sm">
             <nav class="navbar navbar-expand-lg ">
-                <div class="container-fluid container-sm">
+                <div class="container-fluid">
                     <a class="navbar-brand" href="#"><img src="/assets/img/logo.png" alt=""></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <div class="">
+                    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                         <ul class="navbar-nav">
+                            @auth
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" role="button"
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                        Admin
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="{{ route('projeto.create') }}">Criar projeto</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="{{ route('contato.index') }}">Visualizar
+                                                contatos</a></li>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li><a class="dropdown-item" href="{{ route('admin.logout') }}">Logout</a></li>
+                                    </ul>
+                                </li>
+                            @endauth
                             <li class="nav-item">
                                 <a class="nav-link" aria-current="page" href="{{ route('home') }}">Inicio</a>
                             </li>
@@ -70,7 +90,12 @@
 
             <div class="pt-3">
                 <label for="img_secundaria" class="form-label">Foto Secundaria</label>
-                <input class="form-control" name="img_secundaria" type="file" id="formFile">
+                <input class="form-control" name="img_secundaria" type="file" id="formFile" required>
+            </div>
+
+            <div class="pt-3">
+                <label for="img_terciaria" class="form-label">Foto Terciaria</label>
+                <input class="form-control" name="img_terciaria" type="file" id="formFile" required>
             </div>
 
             <div class="data container-sm">
@@ -89,10 +114,14 @@
                 <button type="submit" class="btn btn-success">Criar</button>
             </div>
         </form>
-
-
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+        integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous">
+    </script>
 
 </body>
 

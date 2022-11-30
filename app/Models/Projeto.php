@@ -15,7 +15,6 @@ class Projeto extends Model
         'img_principal',
         'img_secundaria',
         'img_terciaria',
-        'img_quaternario',
         'data_inicio',
         'data_final',
     ];

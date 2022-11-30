@@ -54,40 +54,14 @@ a {
 
 
 
-/*
-
-.criar-proj {
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 32px;
-}
-
-.criar-proj a button {
-  background-color: #EB5757;
-  font-size: 18px;
-  font-weight: bold;
-  width: 150px;
-  height: 32px;
-  border: none;
-  border-radius: 4px;
-  color: #fff;
-  margin-top: 28px;
-  cursor: pointer;
-}
-.criar-proj a button:hover{
-  background-color: #252525;
-}
-
-*/
-
-
 .container-projeto {
   margin-top: 24px;
   border-bottom: 3px solid #EB5757;
   height: 195px;
   display: flex;
   transition: all .3s ease;
+  white-space: nowrap;
+
 }
 
 .container-projeto:hover {
@@ -114,16 +88,19 @@ a {
 .conteudo-projeto {
   margin-left: 24px;
   height: 191px;
-  width: 70%;
+  width: 735px;
   display: flex;
   position: relative;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 
-.conteudo-projeto h1 {
+.conteudo-projeto h4 {
+  font-weight: bold;
   font-size: 20px;
   width: 100%;
-  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   padding-top: 6px;
@@ -144,7 +121,8 @@ a {
   padding-left: 12px;
   font-weight: bold;
 }
-.botao i{
+
+.botao i {
   position: absolute;
   left: 6px;
 }
@@ -157,10 +135,12 @@ a {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.btns{
+
+.btns {
   display: flex;
 }
-#texto-projeto{
+
+#texto-projeto {
   width: 100%;
 }
 
@@ -231,25 +211,36 @@ a {
   }
 
   .container-projeto {
-    height: 320px;
+    height: 324px;
+    margin: 32px auto;
     border-bottom: 3px solid #EB5757;
   }
 
   .categoria-data {
-    margin-top: 12px;
-    padding-bottom: 6px;
-    justify-content: center;
-  }
-
-  .search {
     width: 375px;
+    /* display: flex; */
+    align-items: center;
   }
 
-  .search input {
-    width: 280px;
+  .excluir{
+    position: absolute;
+    right: 6px;
+    bottom: -5px;
+  }
+  .excluir button{
+    width: 80px;
+    padding-left: 0;
+  }
+  .excluir i{
+    display: none;
   }
 
-  .search button {
-    width: 89px;
+  .pesquisar input {
+    width: 250px;
+  }
+
+  .paginacao{
+    display: flex;
+    justify-content: center;
   }
 }

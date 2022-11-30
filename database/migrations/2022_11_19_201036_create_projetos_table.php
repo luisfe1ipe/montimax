@@ -18,9 +18,8 @@ return new class extends Migration
             $table->string('titulo');
             $table->longText('descricao');
             $table->string('img_principal');
-            $table->string('img_secundaria')->nullable();
-            $table->string('img_terciaria')->nullable();
-            $table->string('img_quaternario')->nullable();
+            $table->string('img_secundaria');
+            $table->string('img_terciaria');
             $table->date('data_inicio')->nullable();
             $table->date('data_final')->nullable();
             $table->timestamps();

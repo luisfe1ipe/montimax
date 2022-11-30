@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projetos - MONTIMAX</title>
 
+    <link rel="icon" href="/assets/svg/M.svg">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -26,8 +28,8 @@
 
 
     <script>
-        $(document).ready(function (){
-            $('.deletarProjetoBtn').click(function (e){
+        $(document).ready(function() {
+            $('.deletarProjetoBtn').click(function(e) {
                 e.preventDefault();
 
                 var projeto_id = $(this).val();
@@ -40,24 +42,6 @@
 </head>
 
 <body>
-
-    {{-- <nav class="navbar fixed-top border-bottom border-danger">
-        <div class="container-sm d-flex">
-            <a href="index.html"><img class="navbar-brand" src="/assets/img/logo.png" alt=""></a>
-            <div class="mobile-menu">
-                <div class="line1"></div>
-                <div class="line2"></div>
-                <div class="line3"></div>
-            </div>
-            <div class="navlist">
-                <ul class="d-flex">
-                    <li><a href="index.html">Início</a></li>
-                    <li><a href="{{ route('projeto.index') }}" id="navbar-ativo">Projetos</a></li>
-                    <li><a href="{{ route('contato.create') }}">Contato</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav> --}}
 
     <div class="border-bottom border-danger fixed-top bg-white">
         <div class="container-sm">
@@ -109,16 +93,11 @@
 
 
     <div class="container-sm titulo">
-        <!-- Button trigger modal -->
-
-
-
         <h1>Nossos Projetos</h1>
         <p>Todos os nossos projetos são feitos de acordo com as regulamentações</p>
     </div>
 
-    <div class="container-sm d-flex flex-column align-items-center ">
-
+    <div class="container-sm">
         <div class="row">
             <div class="pesquisar">
                 <form action="{{ route('projeto.index') }}" method="get">
@@ -130,8 +109,6 @@
     </div>
 
     <div class="container-sm">
-
-
         @foreach ($projetos as $projeto)
             <div class="container-projeto">
                 <a href="{{ route('projeto.show', ['id' => $projeto->id]) }}">
@@ -142,9 +119,9 @@
                 <div class="conteudo-projeto container-sm">
                     <a href="{{ route('projeto.show', ['id' => $projeto->id]) }}" id="texto-projeto">
                         <div>
-                            <h1>
+                            <h4>
                                 {{ $projeto->titulo }}
-                            </h1>
+                            </h4>
                             <p>
                                 {{ $projeto->descricao }}
                             </p>
@@ -155,8 +132,8 @@
                             <div class="excluir">
                                 <button type="button" value="{{ $projeto->id }}" class="botao deletarProjetoBtn"
                                     id="btn-p" data-bs-toggle="modal" data-bs-target="#deleteModal">
-                                    <i class='fas fa-trash'></i>
-                                    Excluir
+                                    <i class='fas fa-cog'></i>
+                                    Ações
                                 </button>
                             </div>
                         @endauth
@@ -166,7 +143,7 @@
 
             </div>
         @endforeach
-            <!-- Modal -->
+    </div>       
         <form action="{{ route('projeto.delete') }}" method="POST">
             @csrf
             <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -189,6 +166,7 @@
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary"
                                 data-bs-dismiss="modal">Cancelar</button>
+                            <a href="{{ route('projeto.edit', ['id' => $projeto->id]) }}" class="btn btn-primary">Editar</a>
                             <button type="submit" class="btn btn-danger">Excluir</button>
                         </div>
                     </div>
@@ -196,30 +174,32 @@
             </div>
         </form>
 
-        
-
         <div class="container-sm mt-5">
-            {{ $projetos->appends([
-                    'search' => request()->get('search', ''),
-                ])->links('pagination::bootstrap-5') }}
+            <div class="paginacao">
+                {{ $projetos->appends([
+                        'search' => request()->get('search', ''),
+                    ])->links('pagination::bootstrap-5') }}
+            </div>
         </div>
 
+        <footer class="w-100 text-center text-lg-start text-muted">
+            <div class="container-sm">
+                <section class="d-flex justify-content-center justify-content-lg-between p-4">
+                    <div class="me-5  d-lg-block">
+                        <span>Rua xxx, XX - Tarumã, SP</span>
+                    </div>
+                    <div class="me-5 d-lg-block">
+                        <span>ammoraismontagens@hotmail.com</span>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <a href="" class="me-5 text-reset" style="padding-left: 4px">(xx) xxxxx-xxxx
+                        </a>
+                    </div>
+                </section>
+            </div>
+        </footer>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <script src="/assets/js/mobile-navbar.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
             integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
         </script>

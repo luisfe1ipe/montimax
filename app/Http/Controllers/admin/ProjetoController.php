@@ -18,7 +18,7 @@ class ProjetoController extends Controller
 
         $projetos = Projeto::where('titulo',  'LIKE', "%{$request->search}%")
             ->orderBy('created_at', 'desc')
-            ->paginate(8)
+            ->paginate(12)
             ->withQueryString();
 
         return view('user.projetos', compact('projetos', 'user'));
@@ -43,9 +43,6 @@ class ProjetoController extends Controller
     public function store(StoreUpdateProjetoFormRequest $request)
     {
         $data = $request->all();
-        // if($request->img_principal){
-        //     $data['img_principal'] = $request->img_principal->store('/projetos');
-        // }
 
         if ($request->file('img_principal')) {
             $imgNamePrincipal = time() . '.' . $request->img_principal->extension();
@@ -59,6 +56,13 @@ class ProjetoController extends Controller
             $request->img_secundaria->move(public_path('img-projetos/secundaria'), $imgNameSecundaria);
             $data['img_secundaria'] = $imgNameSecundaria;
         }
+
+        if($request->file('img_terciaria')){
+            $imgNameTerciaria = time() . '.' . $request->img_terciaria->extension();
+            $request->img_terciaria->move(public_path('img-projetos/terciaria'), $imgNameTerciaria);
+            $data['img_terciaria'] = $imgNameTerciaria;
+        }
+
         Projeto::create($data);
         
 
@@ -84,12 +88,6 @@ class ProjetoController extends Controller
             return redirect()->back();
         }
 
-        // if($request->img_principal){
-        //     if(Storage::exists($projeto->img_principal)){
-        //         Storage::delete($projeto->img_principal);
-        //     }
-        //     $data['img_principal'] = $request->img_principal->store('/projetos');
-        // }
 
         if ($request->img_principal) {
             if (file_exists(public_path('img-projetos/principal/' . $projeto->img_principal))) {
@@ -102,19 +100,21 @@ class ProjetoController extends Controller
 
 
         if ($request->img_secundaria) {
-            if (!$projeto->img_secundaria) {
-                $imgNameSecundaria = $request->titulo . '-' . time() . '.' . $request->img_secundaria->extension();
-                $request->img_secundaria->move(public_path('img-projetos/secundaria'), $imgNameSecundaria);
-                $data['img_secundaria'] = $imgNameSecundaria;
-            }
-            if ($projeto->img_secundaria) {
+            if (file_exists(public_path('img-projetos/secundaria/' . $projeto->img_secundaria))) {
                 unlink(public_path('img-projetos/secundaria/' . $projeto->img_secundaria));
-                $imgNameSecundaria = $request->titulo . '-' . time() . '.' . $request->img_secundaria->extension();
-                $request->img_secundaria->move(public_path('img-projetos/secundaria'), $imgNameSecundaria);
-                $data['img_secundaria'] = $imgNameSecundaria;
             }
+            $imgNameSecundaria = $request->titulo . '-' . time() . '.' . $request->img_secundaria->extension();
+            $request->img_secundaria->move(public_path('img-projetos/secundaria'), $imgNameSecundaria);
+            $data['img_secundaria'] = $imgNameSecundaria;
+        }
 
-            
+        if ($request->img_terciaria) {
+            if(file_exists(public_path('img-projetos/terciaria/' . $projeto->img_terciaria))){
+                unlink(public_path('img-projetos/terciaria/' . $projeto->img_terciaria));
+            }
+            $imgNameTerciaria = time() . '.' . $request->img_terciaria->extension();
+            $request->img_terciaria->move(public_path('img-projetos/terciaria'), $imgNameTerciaria);
+            $data['img_terciaria'] = $imgNameTerciaria;
         }
 
 
@@ -122,6 +122,7 @@ class ProjetoController extends Controller
 
         return redirect()->route('projeto.index');
     }
+    
 
     public function delete(Request $request)
     {

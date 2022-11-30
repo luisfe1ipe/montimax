@@ -15,9 +15,9 @@
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 
 
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
 </head>
 
@@ -25,20 +25,39 @@
 
     <div class="border-bottom border-danger fixed-top bg-white">
         <div class="container-sm">
-            <nav class="navbar navbar-expand-lg">
+            <nav class="navbar navbar-expand-lg ">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="#"><img src="/assets/img/logo.png" alt=""></a>
+                    <a class="navbar-brand" href="{{ route('home') }}"><img src="/assets/img/logo.png"
+                            alt=""></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <div class="">
+                    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                         <ul class="navbar-nav">
+                            @auth
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" role="button"
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                        Admin
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="{{ route('projeto.create') }}">Criar projeto</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="{{ route('contato.index') }}">Visualizar
+                                                contatos</a></li>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li><a class="dropdown-item" href="{{ route('admin.logout') }}">Logout</a></li>
+                                    </ul>
+                                </li>
+                            @endauth
                             <li class="nav-item">
-                                <a class="nav-link nav-active" aria-current="page" href="#">Inicio</a>
+                                <a class="nav-link" aria-current="page" href="{{ route('home') }}">Inicio</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('projeto.index') }}">Projetos</a>
+                                <a class="nav-link nav-active" href="{{ route('projeto.index') }}">Projetos</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('contato.create') }}">Contato</a>
@@ -52,75 +71,59 @@
     </div>
 
 
-
-    <div class="container-sm">
+    <div class="container-sm ">
         <div class="container-projeto">
-            <div class="titulo-projeto">
-                <h1>{{ $projeto->titulo }}</h1>
-            </div>
-            <div class="data w-100 pt-3  d-flex align-items-center justify-content-between">
+            <h1>{{ $projeto->titulo }}</h1>
+            <div class="data">
                 @if ($projeto->data_inicio)
-                    <p><strong>Data inicio: </strong>{{ $projeto->data_inicio = date('d M Y') }}</p>
+                    <span><strong>Inicio</strong>: {{ $projeto->data_inicio = date('d M Y') }}</span>
                 @endif
                 @if ($projeto->data_final)
-                    <p><strong>Data final: </strong>{{ $projeto->data_final = date('d M Y') }}</p>
+                    <span><strong>Termino</strong>: {{ $projeto->data_final = date('d M Y') }}</span>
                 @endif
             </div>
-
             <div class="projeto">
-                <div class="descricao mt-3 mb-5">
+                <div class="foto-projeto">
+                    <div class="foto-principal">
+                        <img id="imageBox" src="{{ asset("img-projetos/principal/{$projeto->img_principal}") }}"
+                            onclick="myFunction(this)">
+                    </div>
+                    <div class="container-foto-secundaria">
+                        <div class="foto-secundaria">
+                            <img src="{{ asset("img-projetos/secundaria/{$projeto->img_secundaria}") }}"
+                                onclick="myFunction(this)">
+                        </div>
+                        <div class="foto-secundaria">
+                            <img src="{{ asset("img-projetos/terciaria/{$projeto->img_terciaria}") }}"
+                                onclick="myFunction(this)">
+                        </div>
+                        <div class="foto-secundaria">
+                            <img src="{{ asset("img-projetos/principal/{$projeto->img_principal}") }}"
+                                onclick="myFunction(this)">
+                        </div>
+                    </div>
+                </div>
+                <div class="descricao-projeto">
                     <p>
-                        {{$projeto->descricao}}
+                        {{ $projeto->descricao }}
                     </p>
                 </div>
-                <div class="foto-projeto">
-                    <div class="container-sm d-flex justify-content-center">
-                        <div id="carouselExampleControls"
-                        class="carousel slide d-flex justify-content-center align-content-center"
-                        data-bs-ride="carousel">
-                        <div class="carousel-inner" style="width: 700px; height:400px; ">
-                            <div class="carousel-item active ">
-                                <img src="{{ asset("img-projetos/principal/{$projeto->img_principal}") }}"
-                                    class="d-block w-100 h-100 shadow" alt="...">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="{{ asset("img-projetos/secundaria/{$projeto->img_secundaria}") }}"
-                                    class="d-block w-100 h-100" alt="...">
-                            </div>
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
-                            data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon bg-danger" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
-                            data-bs-slide="next">
-                            <span class="carousel-control-next-icon bg-danger" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
-                    </div>
-                    </div>
-                </div>
             </div>
-
-        </div>
-
-        <div class="btns pt-5">
-            <a href="{{ route('projeto.edit', ['id' => $projeto->id]) }}" class="btn btn-dark">Editar</a>
-            <form action="{{ route('projeto.delete', $projeto->id) }}" method="POST">
-                @method('DELETE')
-                @csrf
-                <button type="submit" class="btn" id="btn-p">Excluir</button>
-            </form>
         </div>
     </div>
 
+    <script>
+        function myFunction(smallImg) {
+            var fullImg = document.getElementById("imageBox");
+            fullImg.src = smallImg.src;
+        }
+    </script>
 
-
-
-    <script src="/assets/js/mobile-navbar.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+        integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous">
     </script>
 </body>
 
