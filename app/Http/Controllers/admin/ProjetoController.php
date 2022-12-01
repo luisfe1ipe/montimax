@@ -69,8 +69,10 @@ class ProjetoController extends Controller
         return redirect()->route('projeto.index');
     }
 
-    public function edit($id)
+    public function edit(Request $request)
     {
+
+        $id = $request->projeto_action_id;
 
         if (!$projeto = Projeto::find($id)) {
             return redirect()->back();
@@ -126,7 +128,7 @@ class ProjetoController extends Controller
 
     public function delete(Request $request)
     {
-        $id = $request->projeto_deletar_id;
+        $id = $request->projeto_action_id;
 
 
         if (!$projeto = Projeto::find($id)) {
@@ -142,6 +144,12 @@ class ProjetoController extends Controller
         if ($projeto->img_secundaria) {
             if (file_exists(public_path('img-projetos/secundaria/' . $projeto->img_secundaria))) {
                 unlink(public_path('img-projetos/secundaria/' . $projeto->img_secundaria));
+            }
+        }
+
+        if ($projeto->img_terciaria) {
+            if (file_exists(public_path('img-projetos/terimg_terciaria/' . $projeto->img_terciaria))) {
+                unlink(public_path('img-projetos/terimg_terciaria/' . $projeto->img_terciaria));
             }
         }
 

@@ -93,6 +93,12 @@
                     value="{{ $projeto->img_secundaria }}">
             </div>
 
+            <div class="pt-3">
+                <label for="img_terciaria" class="form-label">Foto Terciaria</label>
+                <input type="file" class="form-control" name="img_terciaria"
+                    value="{{ $projeto->img_terciaria }}">
+            </div>
+
             <div class="data">
                 <div class="inicio">
                     <label for="data_inicio">Data Inicio</label>

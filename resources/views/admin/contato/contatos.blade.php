@@ -26,7 +26,7 @@
         <div class="container-sm">
             <nav class="navbar navbar-expand-lg ">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="#"><img src="/assets/img/logo.png" alt=""></a>
+                    <a class="navbar-brand" href="{{ route('home') }}"><img src="/assets/img/logo.png" alt=""></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -55,7 +55,7 @@
                                 <a class="nav-link" aria-current="page" href="{{ route('home') }}">Inicio</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link nav-active" href="{{ route('projeto.index') }}">Projetos</a>
+                                <a class="nav-link" href="{{ route('projeto.index') }}">Projetos</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('contato.create') }}">Contato</a>
@@ -98,7 +98,7 @@
 
     </div>
     <table class="table" style="width: 98%; margin:0 auto;">
-        <thead class="thead-dark">
+        <thead class="bg-dark text-white">
             <tr>
                 <th scope="col">Status</th>
                 <th scope="col">Nome</th>

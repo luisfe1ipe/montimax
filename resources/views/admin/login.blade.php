@@ -36,7 +36,7 @@
                 </div>
     
                 <div class="btns d-flex justify-content-center mt-5 mb-4">
-                    <button type="submit" class="btn w-100" id="btn-p">Entrar</button>
+                    <button type="submit" class="custom-red btn w-100">Entrar</button>
                 </div>
 
                 <center>

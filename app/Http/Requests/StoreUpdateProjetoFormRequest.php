@@ -28,7 +28,8 @@ class StoreUpdateProjetoFormRequest extends FormRequest
             'titulo' => 'required|string',
             'descricao' => 'required|string',
             'img_principal' => 'required',
-            'img_secundaria' => 'image|nullable',
+            'img_secundaria' => 'image',
+            'img_terciaria' => 'image',
             'data_inicio' => 'date|nullable',
             'data_final' => 'date|nullable'
         ];
@@ -36,6 +37,7 @@ class StoreUpdateProjetoFormRequest extends FormRequest
         if($this->method('PUT')){
             $rules['img_principal'] = 'nullable';
             $rules['img_secundaria'] = 'nullable';
+            $rules['img_terciaria'] = 'nullable';
         }
 
         return $rules;

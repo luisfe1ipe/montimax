@@ -66,10 +66,10 @@
                                 <a class="nav-link" aria-current="page" href="{{ route('home') }}">Inicio</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link nav-active" href="{{ route('projeto.index') }}">Projetos</a>
+                                <a class="nav-link" href="{{ route('projeto.index') }}">Projetos</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('contato.create') }}">Contato</a>
+                                <a class="nav-link nav-active" href="{{ route('contato.create') }}">Contato</a>
                             </li>
 
                         </ul>
@@ -149,7 +149,7 @@
                     </div>
                 </div>
                 <center>
-                    <button type="submit" class="btn w-25 m-3" id="btn-p">Enviar</button>
+                    <button type="submit" class="custom-red btn w-25 m-3 ">Enviar</button>
                 </center>
             </form>
 
@@ -166,11 +166,6 @@
                 <p>Tarumã, São Paulo</p>
             </div>
             <p id="telefone"><strong>Telefone:</strong> (18) 99999-9999</p>
-            @auth
-                <div class="ver-contatos d-flex justify-content-center">
-                    <a href=" {{ route('contato.index') }}" class="btn" id="btn-p">Ver contatos</a>
-                </div>
-            @endauth
         </div>
     </div>
 

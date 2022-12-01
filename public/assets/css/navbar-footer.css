@@ -11,16 +11,15 @@ h1,h2{
 }
 
 
-
-#btn-p{
-    background-color: #EF4243;
-    color: #fff; 
+.custom-red{
+    background-color: #EF4243 !important;
+    color: #fff !important; 
 }
-#btn-p:hover{
-    background-color: #bb3636;
-    color: #fff;
+.custom-red:hover{
+    background-color: #bb3636 !important;
+    color: #fff !important;
 }
-#btn-p:active{
+.custom-red:active{
     border: 1px solid #EF4243 !important;
     color: #EF4243 !important;
     background: transparent !important;
@@ -38,16 +37,10 @@ h1,h2{
 }
 
 
-
-
-
 /* ----------------------- NAVBAR ----------------------- */
 
-
-
-
 .nav-item a{
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
     color: #000000;
     text-decoration: none;
@@ -60,65 +53,13 @@ h1,h2{
 }
 
 .nav-active{
-    color: #EF4243 ;
-}
-
-
-
-
-
-/*
-.navbar{
-    width: 1116px;
-    height: 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 15px;
-
-}
-.navbar .btn-menumobile{
-    display: none;
-}
-
-.navbar a{
-    width: 308px;
-}
-.mobile-menu{
-    display: none;
-    cursor: pointer;
-}
-.mobile-menu div{
-    width: 32px;
-    height: 2px;
-    background-color: red;
-    margin: 8px;
-}
-
-.navbar ul{
-    display: flex;
-}
-
-.navbar ul li{
-    list-style: none;
-}
-.navbar ul li a{
-    font-size: 18px;
-    font-weight: bold;
-    color: #000000;
-    text-decoration: none;
-    margin-left: 32px;
-}
-.navbar ul li a:hover{
-    color: #EF4243;
+    color: #EF4243 !important;
 }
 
 #navbar-ativo{
     color: #EF4243;
 }
 
-
-*/
 .login-container{
     width: 410px;
     margin: 0 auto;
@@ -128,6 +69,15 @@ h1,h2{
     font-size: 18px;
 }
 
+.navbar-brand{
+    width: 180px !important;
+}
+.navbar-brand img{
+    width: 100%;
+}
+.dropdown-item:active{
+    background-color: #ccc !important;
+}
 
 /* ----------------------- FOOTER ----------------------- */
 footer{

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> {{ $contato->nome }} - MONTIMAX</title>
+    <title> Visualizar Contato - MONTIMAX</title>
 
     <link rel="icon" href="/assets/svg/M.svg">
     {{-- <link rel="stylesheet" href="/assets/css/navbar-footer.css"> --}}
@@ -19,6 +19,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/assets/css/navbar-footer.css">
 </head>
 
 <body>
@@ -58,7 +60,7 @@
                                 <a class="nav-link" aria-current="page" href="{{ route('home') }}">Inicio</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link nav-active" href="{{ route('projeto.index') }}">Projetos</a>
+                                <a class="nav-link" href="{{ route('projeto.index') }}">Projetos</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('contato.create') }}">Contato</a>
@@ -130,10 +132,21 @@
 
 
 
-    <footer>
-        <p>(18) 99999-9999</p>
-        <p>exemplo@gmail.com</p>
-        <p>Rua xxxxxxx, XX - Tarumã - SP</p>
+    <footer class="w-100 text-center text-lg-start text-muted">
+        <div class="container-sm">
+            <section class="d-flex justify-content-center justify-content-lg-between p-4">
+                <div class="me-5  d-lg-block">
+                    <span>Rua xxx, XX - Tarumã, SP</span>
+                </div>
+                <div class="me-5 d-lg-block">
+                    <span>ammoraismontagens@hotmail.com</span>
+                </div>
+                <div class="d-flex align-items-center">
+                    <a href="" class="me-5 text-reset" style="padding-left: 4px">(xx) xxxxx-xxxx
+                    </a>
+                </div>
+            </section>
+        </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"

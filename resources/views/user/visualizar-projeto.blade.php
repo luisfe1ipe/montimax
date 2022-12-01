@@ -19,6 +19,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
+
+
 </head>
 
 <body>
@@ -57,7 +59,7 @@
                                 <a class="nav-link" aria-current="page" href="{{ route('home') }}">Inicio</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link nav-active" href="{{ route('projeto.index') }}">Projetos</a>
+                                <a class="nav-link" href="{{ route('projeto.index') }}">Projetos</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('contato.create') }}">Contato</a>
@@ -71,18 +73,18 @@
     </div>
 
 
-    <div class="container-sm ">
+    <div class="container-sm overflow-hidden">
         <div class="container-projeto">
             <h1>{{ $projeto->titulo }}</h1>
             <div class="data">
                 @if ($projeto->data_inicio)
-                    <span><strong>Inicio</strong>: {{ $projeto->data_inicio = date('d M Y') }}</span>
+                    <span><strong>Inicio</strong>: {{ $projeto->data_inicio = date('d/m/Y') }}</span>
                 @endif
                 @if ($projeto->data_final)
-                    <span><strong>Termino</strong>: {{ $projeto->data_final = date('d M Y') }}</span>
+                    <span><strong>Termino</strong>: {{ $projeto->data_final = date('d/m/Y') }}</span>
                 @endif
             </div>
-            <div class="projeto">
+            <div class="d-flex projeto">
                 <div class="foto-projeto">
                     <div class="foto-principal">
                         <img id="imageBox" src="{{ asset("img-projetos/principal/{$projeto->img_principal}") }}"
@@ -110,6 +112,19 @@
                 </div>
             </div>
         </div>
+        @auth
+            <div class="btns">
+                <form action="{{ route('projeto.delete') }}" method="POST">
+                    @csrf
+                    <input type="hidden" name="projeto_action_id" class="projeto_id" value="{{ $projeto->id }}">
+                    <button type="submit" class="btn btn-danger">Excluir</button>
+                </form>
+                <form action="{{ route('projeto.edit') }}" method="GET">
+                    <input type="hidden" name="projeto_action_id" class="projeto_id" value="{{ $projeto->id }}">
+                    <button type="submit" class="btn btn-primary">Editar</button>
+                </form>
+            </div>
+        @endauth
     </div>
 
     <script>
@@ -125,6 +140,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
         integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous">
     </script>
+
 </body>
 
 </html>

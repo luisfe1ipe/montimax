@@ -56,10 +56,10 @@
                                 </li>
                             @endauth
                             <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href="{{ route('home') }}">Inicio</a>
+                                <a class="nav-link nav-active" aria-current="page" href="{{ route('home') }}">Inicio</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link nav-active" href="{{ route('projeto.index') }}">Projetos</a>
+                                <a class="nav-link" href="{{ route('projeto.index') }}">Projetos</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('contato.create') }}">Contato</a>
@@ -82,7 +82,7 @@
                     Entre em contato para que possamos ajuda-lo
                 </p>
                 <a href="{{ route('contato.create') }}">
-                    <button class="btn" id="btn-p">
+                    <button class="btn custom-red">
                         Contato
                     </button>
                 </a>
@@ -104,7 +104,7 @@
         </div>
     </div>
 
-    @if (count($projetos) > 0)
+    @if (count($projetos) > 2)
         <div class="container-sm d-flex flex-column justify-content-between mt-5">
             <h2>Nossos projetos</h2>
             <div class="container-sm d-flex justify-content-between mt-3 projetos">
@@ -125,7 +125,7 @@
             @endforeach
         </div>
         <div class="d-flex justify-content-center mt-3">
-            <a href="{{ route('projeto.index') }}" class="btn" id="btn-p">Ver todos projetos</a>
+            <a href="{{ route('projeto.index') }}" class="btn custom-red">Ver todos projetos</a>
         </div>
     </div>
 @endif

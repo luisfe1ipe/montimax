@@ -22,20 +22,20 @@ Route::get('/', function () {
   return view('user.home', compact('projetos'));
 })->name('home');
 
-Route::post('/projetos' , [ProjetoController::class, 'delete'])->name('projeto.delete');
-Route::put('/projetos/{id}', [ProjetoController::class, 'update'])->name('projeto.update');
-Route::get('/projetos/{id}/editar', [ProjetoController::class, 'edit'])->name('projeto.edit');
+Route::post('/projetos' , [ProjetoController::class, 'delete'])->name('projeto.delete')->middleware('auth');
+Route::put('/projetos/{id}', [ProjetoController::class, 'update'])->name('projeto.update')->middleware('auth');
+Route::get('/projetos/editar', [ProjetoController::class, 'edit'])->name('projeto.edit')->middleware('auth');
 Route::get('/projetos', [ProjetoController::class, 'index'])->name('projeto.index');
-Route::get('/projetos/criar', [ProjetoController::class, 'create'])->name('projeto.create');
+Route::get('/projetos/criar', [ProjetoController::class, 'create'])->name('projeto.create')->middleware('auth');
 Route::get('/projetos/{id}', [ProjetoController::class, 'show'])->name('projeto.show');
-Route::post('/projetos/criar', [ProjetoController::class, 'store'])->name('projeto.store');
+Route::post('/projetos/criar', [ProjetoController::class, 'store'])->name('projeto.store')->middleware('auth');
 
 
 
-Route::delete('/contato/todos/{id}' , [ContatoController::class, 'delete'])->name('contato.delete');
-Route::put('/contato/todos/{id}', [ContatoController::class, 'update'])->name('contato.update');
-Route::get('/contato/todos/{id}', [ContatoController::class, 'edit'])->name('contato.edit');
-Route::get('/contato/todos', [ContatoController::class, 'index'])->name('contato.index');
+Route::delete('/contato/todos/{id}' , [ContatoController::class, 'delete'])->name('contato.delete')->middleware('auth');
+Route::put('/contato/todos/{id}', [ContatoController::class, 'update'])->name('contato.update')->middleware('auth');
+Route::get('/contato/todos/{id}', [ContatoController::class, 'edit'])->name('contato.edit')->middleware('auth');
+Route::get('/contato/todos', [ContatoController::class, 'index'])->name('contato.index')->middleware('auth');
 Route::get('/contato', [ContatoController::class, 'create'])->name('contato.create');
 Route::post('/contato', [ContatoController::class, 'store'])->name('contato.store');
 
