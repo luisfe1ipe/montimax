@@ -4,12 +4,22 @@
     height: auto;
     margin: 0 auto;
     display: flex;
-    padding-top: 150px;
+    padding-top: 100px;
     justify-content: space-around;
 }
 
+select:focus-visible,
+textarea:focus-visible,
+input:focus-visible {
+    -webkit-box-shadow: 0px 0px 5px 0px rgb(199, 199, 199) !important;
+    -moz-box-shadow: 0px 0px 5px 0px rgb(199, 199, 199) !important;
+    box-shadow: 0px 0px 5px 0px rgb(199, 199, 199) !important;
+    border: 1px rgb(161, 161, 161) solid !important;
+    background-color: white !important;
+}
+
 .form{
-    width: 785px;
+    width: 700px;
     display: flex;
     flex-direction: column;
 }
@@ -28,11 +38,13 @@
 
 .inputs input{
     width: 100%;
-    height: 30px;
     border-radius: 4px;
     padding: 4px;
-    margin-bottom: 14px;
-    border: 1.8px solid #000000;
+    margin-bottom: 16px;
+}
+
+label{
+    margin-bottom: 6px !important;
 }
 
 .inputs p{
@@ -52,7 +64,6 @@
 
 .inputs textarea{
     border-radius: 4px;
-    border: 1.8px solid #000000;
     resize: none;
     width: 100%;
 }

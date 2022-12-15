@@ -127,6 +127,23 @@
         @endauth
     </div>
 
+    <footer class="w-100 text-center text-lg-start text-muted">
+        <div class="container-sm">
+            <section class="d-flex justify-content-center justify-content-lg-between p-4">
+                <div class="me-5  d-lg-block">
+                    <span>Rua xxx, XX - Tarumã, SP</span>
+                </div>
+                <div class="me-5 d-lg-block">
+                    <span>ammoraismontagens@hotmail.com</span>
+                </div>
+                <div class="d-flex align-items-center">
+                    <a href="" class="me-5 text-reset" style="padding-left: 4px">(xx) xxxxx-xxxx
+                    </a>
+                </div>
+            </section>
+        </div>
+    </footer>
+
     <script>
         function myFunction(smallImg) {
             var fullImg = document.getElementById("imageBox");
