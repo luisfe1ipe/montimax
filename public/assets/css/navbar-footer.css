@@ -86,8 +86,10 @@ footer{
     background-color: #1E1E1E;
     margin-top: 8%;
     font-size: 13px;
-    
 }
+
+footer p, h6{
+    color: #ccc !important;
 
 footer a{
     text-decoration: underline !important;
