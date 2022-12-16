@@ -148,8 +148,8 @@ class ProjetoController extends Controller
         }
 
         if ($projeto->img_terciaria) {
-            if (file_exists(public_path('img-projetos/terimg_terciaria/' . $projeto->img_terciaria))) {
-                unlink(public_path('img-projetos/terimg_terciaria/' . $projeto->img_terciaria));
+            if (file_exists(public_path('img-projetos/terciaria/' . $projeto->img_terciaria))) {
+                unlink(public_path('img-projetos/terciaria/' . $projeto->img_terciaria));
             }
         }
 
