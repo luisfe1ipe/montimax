@@ -84,9 +84,22 @@ footer{
     width: 100%;
     height: auto;
     background-color: #1E1E1E;
-    margin-top: 15%;
-    font-size: 12px;
+    margin-top: 8%;
+    font-size: 13px;
 }
+
+footer p, h6{
+    color: #ccc !important;
+
+footer a{
+    text-decoration: underline !important;
+}
+
+footer a:hover{
+    color: #EF4243 !important;
+}
+
+
 
 
 

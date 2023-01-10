@@ -47,7 +47,8 @@
         <div class="container-sm">
             <nav class="navbar navbar-expand-lg ">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="{{ route('home') }}"><img src="/assets/img/logo.png" alt=""></a>
+                    <a class="navbar-brand" href="{{ route('home') }}"><img src="/assets/img/logo.png"
+                            alt=""></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -109,13 +110,13 @@
     </div>
 
     @if (count($projetos) == 0)
-        <div class="alert alert-danger d-flex align-items-center justify-content-center w-25" role="alert" style="margin: 24px auto">
+        <div class="alert alert-danger d-flex align-items-center justify-content-center w-50" role="alert"
+            style="margin: 24px auto">
             <i class="fas fa-exclamation-circle" style="font-size: 24px; padding-right:20px"></i>
             <div>
                 Nenhum projeto encontrado
             </div>
         </div>
-        
     @endif
 
 
@@ -143,14 +144,15 @@
                     <div class="categoria-data">
                         @auth
                             <div class="excluir">
-                                <button type="button" value="{{ $projeto->id }}" class="custom-red botao actionsProjetoBtn"
-                                    id="btn-p" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                                <button type="button" value="{{ $projeto->id }}"
+                                    class="custom-red botao actionsProjetoBtn" id="btn-p" data-bs-toggle="modal"
+                                    data-bs-target="#deleteModal">
                                     <i class='fas fa-cog'></i>
                                     Ações
                                 </button>
                             </div>
                         @endauth
-                        <span><strong>Publicado:</strong> {{ $projeto->created_at = date('d/m/Y') }}</span>
+                        <span><strong>Publicado:</strong> {{ $projeto->created_at = date('d-m-Y') }}</span>
                     </div>
                 </div>
 
@@ -196,23 +198,52 @@
     </div>
 
 
-    <footer class="w-100 text-center text-lg-start text-muted">
-        <div class="container-sm">
-            <section class="d-flex justify-content-center justify-content-lg-between p-4">
-                <div class="me-5  d-lg-block">
-                    <span>Rua xxx, XX - Tarumã, SP</span>
+    <footer class="text-center text-lg-start bg-light text-muted">
+        <section class="pt-1">
+            <div class="container text-center text-md-start mt-5">
+                <div class="row mt-3">
+                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                        <h6 class="text-uppercase fw-bold mb-4">
+                            <img src="/assets/img/logo.png" alt="">
+                        </h6>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsum animi tempora id ullam
+                            eveniet accusamus provident eaque.</p>
+                    </div>
+
+                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <h6 class="text-uppercase fw-bold mb-4">
+                            Links úteis
+                        </h6>
+                        <p>
+                            <a href="{{ route('home') }}" class="text-reset">Inicio</a>
+                        </p>
+                        <p>
+                            <a href="{{ route('projeto.index') }}" class="text-reset">Projetos</a>
+                        </p>
+                        <p>
+                            <a href="{{ route('contato.create') }}" class="text-reset">Contato</a>
+                        </p>
+                    </div>
+
+                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                        <h6 class="text-uppercase fw-bold mb-4">Contato</h6>
+                        <p><i class="fas fa-home me-3"></i> Nome da rua</p>
+                        <p>
+                            <i class="fas fa-envelope me-3"></i>
+                            ammoraismontagens@hotmail.com
+                        </p>
+                        <p><i class="fas fa-phone me-3"></i> +55 (18) 99999-9999</p>
+                    </div>
                 </div>
-                <div class="me-5 d-lg-block">
-                    <span>ammoraismontagens@hotmail.com</span>
-                </div>
-                <div class="d-flex align-items-center">
-                    <a href="" class="me-5 text-reset" style="padding-left: 4px">(xx) xxxxx-xxxx
-                    </a>
-                </div>
-            </section>
+            </div>
+        </section>
+
+        <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+            Desenvolvido por:
+            <a class="text-reset fw-bold" target="_blank"
+                href="https://instagram.com/luisfe1ipe?igshid=ZDdkNTZiNTM=">Luis Felipe</a>
         </div>
     </footer>
-
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
         integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">

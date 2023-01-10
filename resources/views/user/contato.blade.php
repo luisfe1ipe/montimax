@@ -88,61 +88,82 @@
                 @csrf
                 <div class="inputs">
                     <div class="name">
-                        <label for="nome">Nome <span>*</span></label>
+                        <label for="nome">Nome</label>
                         <br>
-                        <input type="text" name="nome" id="name" placeholder="Digite aqui..."
-                            value="{{ old('nome') }}"
-                            class="@if ($errors->has('nome')) alert alert-danger border-danger @endif">
+                        <input type="text" value="{{ old('nome') }}" class="form-control
+                            @if ($errors->has('nome')) 
+                                is-invalid
+                            @endif
+                        " placeholder="Digite aqui..." name="nome">
                         @if ($errors->has('nome'))
                             @foreach ($errors->get('nome') as $error)
-                                <p class="text-danger" role="alert">{{ $error }}</p>
+                            <div id="validationServer03Feedback" class="invalid-feedback pt-1">
+                                <p>{{ $error }}</p>
+                            </div>
                             @endforeach
                         @endif
                     </div>
                     <div class="telefone">
-                        <label for="telefone">Telefone<span>*</span></label>
+                        <label for="telefone">Telefone</label>
                         <br>
-                        <input type="text" name="telefone" id="phone" value="{{ old('telefone') }}"
-                            placeholder="(00) 00000-0000"
-                            class="@if ($errors->has('telefone')) alert alert-danger border-danger @endif">
+                        <input type="text" value="{{ old('telefone') }}" id="phone" class="form-control
+                            @if ($errors->has('nome')) 
+                                is-invalid
+                            @endif
+                        " placeholder="(99) 99999-9999" name="telefone">
                         @if ($errors->has('telefone'))
                             @foreach ($errors->get('telefone') as $error)
-                                <p class="text-danger " role="alert">{{ $error }}</p>
+                            <div id="validationServer03Feedback" class="invalid-feedback pt-1">
+                                <p>{{ $error }}</p>
+                            </div>
                             @endforeach
                         @endif
                     </div>
                     <div class="email">
-                        <label for="email">E-mail<span>*</span></label>
+                        <label for="email">Email</label>
                         <br>
-                        <input type="email" name="email" id="email" value="{{ old('email') }}"
-                            placeholder="exemplo@gmail.com"
-                            class="@if ($errors->has('email')) alert alert-danger border-danger @endif">
+                        <input type="email" value="{{ old('email') }}"  class="form-control
+                            @if ($errors->has('email')) 
+                                is-invalid
+                            @endif
+                        " placeholder="Digite aqui..." name="email">
                         @if ($errors->has('email'))
                             @foreach ($errors->get('email') as $error)
-                                <p class="text-danger " role="alert">{{ $error }}</p>
+                            <div id="validationServer03Feedback" class="invalid-feedback pt-1">
+                                <p>{{ $error }}</p>
+                            </div>
                             @endforeach
                         @endif
                     </div>
                     <div class="assunto">
-                        <label for="assunto">Assunto<span>*</span></label>
+                        <label for="assunto">Assunto</label>
                         <br>
-                        <input type="text" name="assunto" id="subject" value="{{ old('assunto') }}"
-                            placeholder="Digite aqui..."
-                            class="@if ($errors->has('assunto')) alert alert-danger border-danger @endif">
+                        <input type="text" value="{{ old('assunto') }}"  class="form-control
+                            @if ($errors->has('assunto')) 
+                                is-invalid
+                            @endif
+                        " placeholder="Digite aqui..." name="assunto">
                         @if ($errors->has('assunto'))
                             @foreach ($errors->get('assunto') as $error)
-                                <p class="text-danger " role="alert">{{ $error }}</p>
+                            <div id="validationServer03Feedback" class="invalid-feedback pt-1">
+                                <p>{{ $error }}</p>
+                            </div>
                             @endforeach
                         @endif
                     </div>
                     <div class="mensagem">
-                        <label for="mensagem">Mensagem<span>*</span></label>
+                        <label for="mensagem">Mensagem</label>
                         <br>
-                        <textarea name="mensagem" id="message" cols="106" rows="15" placeholder="Digite aqui..."
-                            class="p-2 @if ($errors->has('mensagem')) alert alert-danger border-danger @endif">{{ old('mensagem') }}</textarea>
+                        <textarea name="mensagem" class="form-control
+                            @if ($errors->has('mensagem')) 
+                                is-invalid
+                            @endif
+                        " rows="3"> {{ old('mensagem') }} </textarea>
                         @if ($errors->has('mensagem'))
                             @foreach ($errors->get('mensagem') as $error)
-                                <p class="text-danger " role="alert">{{ $error }}</p>
+                            <div id="validationServer03Feedback" class="invalid-feedback pt-2">
+                                <p>{{ $error }}</p>
+                            </div>
                             @endforeach
                         @endif
 
@@ -169,20 +190,52 @@
         </div>
     </div>
 
-    <footer class="w-100 text-center text-lg-start text-muted mt-5">
-        <div class="container-sm">
-            <section class="d-flex justify-content-center justify-content-lg-between p-4">
-                <div class="me-5  d-lg-block">
-                    <span>Rua xxx, XX - Tarumã, SP</span>
+        
+
+    <footer class="text-center text-lg-start bg-light text-muted">
+        <section class="pt-1">
+            <div class="container text-center text-md-start mt-5">
+                <div class="row mt-3">
+                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                        <h6 class="text-uppercase fw-bold mb-4">
+                            <img src="/assets/img/logo.png" alt="">
+                        </h6>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsum animi tempora id ullam
+                            eveniet accusamus provident eaque.</p>
+                    </div>
+
+                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <h6 class="text-uppercase fw-bold mb-4">
+                            Links úteis
+                        </h6>
+                        <p>
+                            <a href="{{ route('home') }}" class="text-reset">Inicio</a>
+                        </p>
+                        <p>
+                            <a href="{{ route('projeto.index') }}" class="text-reset">Projetos</a>
+                        </p>
+                        <p>
+                            <a href="{{ route('contato.create') }}" class="text-reset">Contato</a>
+                        </p>
+                    </div>
+
+                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                        <h6 class="text-uppercase fw-bold mb-4">Contato</h6>
+                        <p><i class="fas fa-home me-3"></i> Nome da rua</p>
+                        <p>
+                            <i class="fas fa-envelope me-3"></i>
+                            ammoraismontagens@hotmail.com
+                        </p>
+                        <p><i class="fas fa-phone me-3"></i> +55 (18) 99999-9999</p>
+                    </div>
                 </div>
-                <div class="me-5 d-lg-block">
-                    <span>ammoraismontagens@hotmail.com</span>
-                </div>
-                <div class="d-flex align-items-center">
-                    <a href="" class="me-5 text-reset" style="padding-left: 4px">(xx) xxxxx-xxxx
-                    </a>
-                </div>
-            </section>
+            </div>
+        </section>
+
+        <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+            Desenvolvido por:
+            <a class="text-reset fw-bold" target="_blank"
+                href="https://instagram.com/luisfe1ipe?igshid=ZDdkNTZiNTM=">Luis Felipe</a>
         </div>
     </footer>
 
